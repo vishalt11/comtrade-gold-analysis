@@ -6,16 +6,21 @@ library(lubridate)
 library(RColorBrewer)
 library(wesanderson)
 
+library(dlookr)
+library(DataExplorer)
+library(SmartEDA)
+
+
 options(scipen = 999)
 
 # Read gold prices data
-gold_df <- read.csv('./gold_prices_monthly.csv')
+gold_df <- read.csv('../data/gold_prices_monthly.csv')
 gold_df$date <- as.Date(gold_df$date, format = '%m/%d/%Y')
 gold_df$date <- format(gold_df$date,"%Y-%m-01")
 gold_df$priceUSD_troyounce <- as.numeric(gsub(",", "", gold_df$priceUSD_troyounce))*32.1507
 
 # Read multiple data files and combine
-file_list <- list.files(path="./data/", full.names = TRUE)
+file_list <- list.files(path="../data/export_data/", full.names = TRUE)
 ldf <- lapply(file_list, read.csv, row.names = NULL)
 df <- do.call("rbind", ldf)
 
@@ -28,6 +33,13 @@ df <- df[c("refYear", "refMonth", "reporterDesc", "partnerDesc", "cmdCode", "qty
            "qty", "altQtyUnitAbbr", "altQty", "primaryValue")]
 
 df[df$partnerDesc == "T\xfcrkiye",]$partnerDesc <- 'Turkey'
+
+df[df$qtyUnitAbbr == "N/A",]$qtyUnitAbbr <- NA
+df[df$altQtyUnitAbbr == "N/A",]$altQtyUnitAbbr <- NA
+df[df$qty == 0,]$qty <- NA
+df[df$altQty == 0,]$altQty <- NA
+
+str(df)
 
 #-------------------------------------------------------------------------------
 
@@ -79,10 +91,15 @@ df$gold_price <- sapply(df$date, function(x) gold_df[gold_df$date == x,]$priceUS
 
 #**
 df <- df[df$partnerDesc != 'World',]
-#**
 
-#-------------------------------------------------------------------------------
-# 1st attempt at transformation
+df$cmdCode <- as.factor(df$cmdCode)
+
+dlookr::diagnose_report(df, output_format = c("pdf"))
+SmartEDA::ExpReport(df, op_file = "../output/smartEDA_report.html")
+
+# Quantity Column Transformation ------------------------------------------
+
+# Transformation 1
 
 df %>% select(qty, altQty, primaryValue)
 
@@ -94,8 +111,9 @@ df[df$qtyTransform != 1 & !is.na(df$qtyTransform) & df$qtyTransform != Inf & !is
      (df$qtyTransform < 900 | df$qtyTransform > 1200) & df$partnerDesc != 'World',] %>% 
   select(reporterDesc, partnerDesc, qty, altQty, qtyTransform, primaryValue, gold_price)
 
-#-------------------------------------------------------------------------------
-# 2nd attempt at transformation
+
+# Transformation 2
+
 #Make unit price column
 df$unit_price <- df$primaryValue/df$altQty
 df[df$unit_price == Inf,]$unit_price <- NA
