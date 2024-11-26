@@ -94,8 +94,11 @@ df <- df[df$partnerDesc != 'World',]
 
 df$cmdCode <- as.factor(df$cmdCode)
 
+# https://choonghyunryu.github.io/dlookr/
 dlookr::diagnose_report(df, output_format = c("pdf"))
 SmartEDA::ExpReport(df, op_file = "../output/smartEDA_report.html")
+
+write.csv(df, "../data/cleaned_monthly_export.csv", row.names = FALSE)
 
 # Quantity Column Transformation ------------------------------------------
 

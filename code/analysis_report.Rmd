@@ -29,7 +29,7 @@ library(scales)
 ### Import the monthly gold prices data. Convert date to first day of the month & USD/troy Oz to USD/Kg.
 
 ```{r}
-gold_df <- read.csv('./gold_prices_monthly.csv')
+gold_df <- read.csv('../data/gold_prices_monthly.csv')
 gold_df$date <- as.Date(gold_df$date, format = '%m/%d/%Y')
 gold_df$date <- format(gold_df$date,"%Y-%m-01")
 gold_df$priceUSD_troyounce <- 
@@ -39,7 +39,7 @@ gold_df$priceUSD_troyounce <-
 # Combine the monthly files (2017-2023) into one Data Frame and select the relevant columns.
 
 ```{r}
-file_list <- list.files(path="./data/", full.names = TRUE)
+file_list <- list.files(path="../data/export_data/", full.names = TRUE)
 ldf <- lapply(file_list, read.csv, row.names = NULL)
 df <- do.call("rbind", ldf)
 
@@ -75,7 +75,7 @@ Trade reported in HS4 matches with HS6 values. No instance of missing trade for 
 # Compare Yearly and Monthly aggregated data
 
 ```{r, message = FALSE, results='hide'}
-tdf <- read.csv('./cleaned_data.csv')
+tdf <- read.csv('../data/yearly_cleaned_data.csv')
 
 r1 <- df[df$cmdCode == 7108 & df$partnerDesc != 'World',] %>% 
   group_by(reporterDesc, partnerDesc) %>% 
@@ -457,11 +457,11 @@ p2/p1
 selectList <- c('Mali', 'United Rep. of Tanzania', 'Ghana', 'Togo', 'Cameroon', 'Benin', 'Ethiopia',
                 'Niger', 'Madagascar', 'Rwanda', 'Mozambique', 'Senegal', 'Burundi')
 
-export <- read.csv('./uae_export.csv', row.names = NULL)
+export <- read.csv('../data/uae_export.csv', row.names = NULL)
 colnames(export) <- colnames(export)[2:ncol(export)]
 export <- export[1:(ncol(export)-1)]
 
-import <- read.csv('./uae_import.csv', row.names = NULL)
+import <- read.csv('../data/uae_import.csv', row.names = NULL)
 colnames(import) <- colnames(import)[2:ncol(import)]
 import <- import[1:(ncol(import)-1)]
 
