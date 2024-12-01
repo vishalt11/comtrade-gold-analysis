@@ -1,5 +1,4 @@
 library(ggplot2)
-library(comtradr)
 library(tidyverse)
 library(lubridate)
 
@@ -17,52 +16,12 @@ library(summarytools)
 
 options(scipen = 999)
 
-# Read gold prices data
-gold_df <- read.csv('../data/gold_prices_monthly.csv')
-gold_df$date <- as.Date(gold_df$date, format = '%m/%d/%Y')
-gold_df$date <- format(gold_df$date,"%Y-%m-01")
-gold_df$priceUSD_troyounce <- as.numeric(gsub(",", "", gold_df$priceUSD_troyounce))*32.1507
-
-# Read multiple data files and combine
-file_list <- list.files(path="../data/export_data/", full.names = TRUE)
-ldf <- lapply(file_list, read.csv, row.names = NULL)
-df <- do.call("rbind", ldf)
-
-rm(ldf, file_list)
-
-colnames(df) <- colnames(df)[2:ncol(df)]
-df <- df[1:(ncol(df)-1)]
-
-df <- df[c("refYear", "refMonth", "reporterDesc", "partnerDesc", "cmdCode", "qtyUnitAbbr", 
-           "qty", "altQtyUnitAbbr", "altQty", "primaryValue")]
-
-df[df$partnerDesc == "T\xfcrkiye",]$partnerDesc <- 'Turkey'
-
-df[df$qtyUnitAbbr == "N/A",]$qtyUnitAbbr <- NA
-df[df$altQtyUnitAbbr == "N/A",]$altQtyUnitAbbr <- NA
-df[df$qty == 0,]$qty <- NA
-df[df$altQty == 0,]$altQty <- NA
-
-str(df)
-
-#-------------------------------------------------------------------------------
-
-
-# Additional task 4
-# the sum of the HS6 values matches with HS4 values ie; there is no instance of
-# traded reported in HS4 that is not reported in HS6
-singleC <- df[df$reporterDesc == 'South Africa',]
-
-sum(singleC[singleC$partnerDesc != 'World' & singleC$cmdCode %in% c(710811, 710812, 710813, 710820),]$primaryValue)
-sum(singleC[singleC$partnerDesc == 'World' & singleC$cmdCode == 7108,]$primaryValue)
-
-#-------------------------------------------------------------------------------
-
 # Compare monthly and yearly data
-# they don't match
-tdf <- read.csv('./cleaned_data.csv')
 
-r1 <- df[df$cmdCode == 7108 & df$partnerDesc != 'World',] %>% 
+tdf <- read.csv('../data/yearly_cleaned_data.csv')
+df <- read.csv("../data/cleaned_monthly_export.csv")
+
+r1 <- df[df$cmdCode == 7108,] %>% 
   group_by(reporterDesc, partnerDesc) %>% summarise(total_pvalue = sum(primaryValue), total_qty = sum(altQty))
 
 r2 <- tdf[tdf$cmdCode == 7108 & tdf$partnerDesc != 'World',] %>% 
@@ -72,39 +31,10 @@ length(unique(r2$total_pvalue[! r2$total_pvalue %in% r1$total_pvalue]))
 length(unique(r2$total_qty[! r2$total_qty %in% r1$total_qty]))
 unique(r2$partnerDesc[! r2$partnerDesc %in% r1$partnerDesc])
 
-#-------------------------------------------------------------------------------
-
-# brics west
-brics <- c("China, Hong Kong SAR", "China", "South Africa", "India", "Russia", "Brazil")
-
-west <- c("USA", "United Kingdom", "Spain", "France", "Germany", "Turkey", "Italy", "Japan",
-          "Rep. of Korea", "Switzerland", "Canada", "Cyprus", "Slovenia")
-
-df$bricsflag <- NA
-df[df$partnerDesc %in% brics,]$bricsflag <- 'b'
-df[df$partnerDesc %in% west,]$bricsflag <- 'w'
-
-# handle date column and subset the gold prices df for the years 2017-2023
-df$date <- as.Date(paste('01', df$refMonth, df$refYear, sep = '/'), format = "%d/%m/%Y")
-gold_df <- gold_df[gold_df$date >= min(df$date) & gold_df$date <= max(df$date),]
-
-df$refYear <- NULL
-df$refMonth <- NULL
-
-df$gold_price <- sapply(df$date, function(x) gold_df[gold_df$date == x,]$priceUSD_troyounce)
-
-#**
-df <- df[df$partnerDesc != 'World',]
-
-df$cmdCode <- as.factor(df$cmdCode)
-
 # https://choonghyunryu.github.io/dlookr/
+
 dlookr::diagnose_report(df, output_format = c("pdf"))
 SmartEDA::ExpReport(df, op_file = "../output/smartEDA_report.html")
-
-write.csv(df, "../data/cleaned_monthly_export.csv", row.names = FALSE)
-
-df <- read.csv("../data/cleaned_monthly_export.csv")
 
 as_tibble(df) %>%
   gt_plt_summary("Comtrade Summary")

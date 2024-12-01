@@ -1,47 +1,36 @@
 "refYear","reporterDesc","partnerDesc","cmdCode","qty","altQty","primaryValue"
-2017,"Kenya","World",710813,396344,52283402,12498920.908
 2017,"Kenya","South Africa",710813,281880,46435680,8831633.031
 2017,"Kenya","Switzerland",710813,114464,5847722,3667287.877
-2017,"South Africa","World",710811,0,46,327.119
 2017,"South Africa","Lesotho",710811,0,25,11.86
 2017,"South Africa","Namibia",710811,0,21,315.259
-2017,"South Africa","World",7108,0,0,4984982037.497
 2017,"South Africa","Lesotho",7108,0,0,11.86
 2017,"South Africa","Namibia",7108,0,0,49387.433
 2017,"South Africa","Eswatini",7108,0,0,272.699
 2017,"South Africa","Areas, nes",7108,127333.5,127333.5,4984932365.505
-2017,"South Africa","World",710813,0,127424.08,4984980135.809
 2017,"South Africa","Namibia",710813,24.592,38.68,47702.749
 2017,"South Africa","Eswatini",710813,0,51.9,67.556
 2017,"South Africa","Areas, nes",710813,127333.5,127333.5,4984932365.505
-2017,"Kenya","World",7108,396375,52315648,13088382.429
 2017,"Kenya","China, Hong Kong SAR",7108,2,1246,44734.057
 2017,"Kenya","Italy",7108,1,3000,9060.156
 2017,"Kenya","South Africa",7108,281880,46435680,8831633.031
 2017,"Kenya","Eswatini",7108,1,1000,8213.228
 2017,"Kenya","Switzerland",7108,114464,5847722,3667287.877
 2017,"Kenya","United Arab Emirates",7108,27,27000,527454.08
-2017,"South Africa","World",710812,0,7,1574.569
 2017,"South Africa","Namibia",710812,1.025,2,1369.425
 2017,"South Africa","Eswatini",710812,0,5,205.144
-2017,"Kenya","World",710812,31,32246,589461.521
 2017,"Kenya","China, Hong Kong SAR",710812,2,1246,44734.057
 2017,"Kenya","Italy",710812,1,3000,9060.156
 2017,"Kenya","Eswatini",710812,1,1000,8213.228
 2017,"Kenya","United Arab Emirates",710812,27,27000,527454.08
-2018,"Kenya","World",710813,14295.32,14294471,11062854.48
 2018,"Kenya","South Africa",710813,181.386,181386,6308281.88
 2018,"Kenya","Switzerland",710813,14112.934,14112934,4748553.249
 2018,"Kenya","United Arab Emirates",710813,1,151,6019.351
-2018,"South Africa","World",7108,0,0,5407914857.095
 2018,"South Africa","Botswana",7108,1,0,1889.883
 2018,"South Africa","Namibia",7108,161.693,0,177346.189
 2018,"South Africa","Eswatini",7108,0,0,438.634
 2018,"South Africa","Areas, nes",7108,150317.32,0,5407735182.389
-2018,"South Africa","World",710813,150478.921,0,5407908644.095
 2018,"South Africa","Namibia",710813,161.601,0,173461.706
 2018,"South Africa","Areas, nes",710813,150317.32,0,5407735182.389
-2018,"Kenya","World",7108,14315.32,14310134,11640159.989
 2018,"Kenya","Canada",7108,1,1000,37828.033
 2018,"Kenya","China, Hong Kong SAR",7108,7,7000,281538.32
 2018,"Kenya","Rep. of Korea",7108,1,214,7483.969
@@ -50,11 +39,9 @@
 2018,"Kenya","Switzerland",7108,14113.934,14113934,4788426.868
 2018,"Kenya","United Arab Emirates",7108,8,3600,122855.931
 2018,"Kenya","USA",7108,1,1000,88.974
-2018,"South Africa","World",710812,0,0,6213.001
 2018,"South Africa","Botswana",710812,1,0,1889.883
 2018,"South Africa","Namibia",710812,0,0,3884.483
 2018,"South Africa","Eswatini",710812,0,0,438.634
-2018,"Kenya","World",710812,20,15663,577305.508
 2018,"Kenya","Canada",710812,1,1000,37828.033
 2018,"Kenya","China, Hong Kong SAR",710812,7,7000,281538.32
 2018,"Kenya","Rep. of Korea",710812,1,214,7483.969
@@ -62,7 +49,6 @@
 2018,"Kenya","Switzerland",710812,1,1000,39873.619
 2018,"Kenya","United Arab Emirates",710812,7,3449,116836.58
 2018,"Kenya","USA",710812,1,1000,88.974
-2019,"Kenya","World",7108,453.986,0,16843465.79
 2019,"Kenya","France",7108,0.1,100,4339.29
 2019,"Kenya","Germany",7108,2,0,38278.48
 2019,"Kenya","China, Hong Kong SAR",7108,16.112,16112,257955.52
@@ -76,7 +62,6 @@
 2019,"Kenya","Turkey",7108,1.051,1051,21079.49
 2019,"Kenya","United Kingdom",7108,0.286,286,10491.2
 2019,"Kenya","USA",7108,2,2000,69880.42
-2019,"Kenya","World",710812,41.263,0,1118719.23
 2019,"Kenya","France",710812,0.1,100,4339.29
 2019,"Kenya","Germany",710812,2,0,38278.48
 2019,"Kenya","China, Hong Kong SAR",710812,16.112,16112,257955.52
@@ -88,26 +73,21 @@
 2019,"Kenya","Turkey",710812,1.051,1051,21079.49
 2019,"Kenya","United Kingdom",710812,0.286,286,10491.2
 2019,"Kenya","USA",710812,2,2000,69880.42
-2019,"Kenya","World",710813,412.723,0,15724746.56
 2019,"Kenya","South Africa",710813,342.614,0,13343069.27
 2019,"Kenya","Switzerland",710813,65.109,0,2246312.45
 2019,"Kenya","United Arab Emirates",710813,5,5000,135364.84
-2019,"South Africa","World",7108,0,0,4621604216.164
 2019,"South Africa","Botswana",7108,0.1,0,219.734
 2019,"South Africa","Lesotho",7108,0,0,9.133
 2019,"South Africa","Namibia",7108,26.46,0,53526.324
 2019,"South Africa","Eswatini",7108,0,0,857.349
 2019,"South Africa","Areas, nes",7108,105016.6,0,4621549603.625
-2019,"South Africa","World",710812,0,0,1035.433
 2019,"South Africa","Namibia",710812,0.76,0,553.07
 2019,"South Africa","Eswatini",710812,0,0,482.362
-2019,"South Africa","World",710813,0,0,4621603180.731
 2019,"South Africa","Botswana",710813,0.1,0,219.734
 2019,"South Africa","Lesotho",710813,0,0,9.133
 2019,"South Africa","Namibia",710813,25.7,0,52973.254
 2019,"South Africa","Eswatini",710813,0,0,374.986
 2019,"South Africa","Areas, nes",710813,105016.6,0,4621549603.625
-2020,"Kenya","World",7108,0,0,9719029.228
 2020,"Kenya","Cyprus",7108,1,1,50441.278
 2020,"Kenya","Ethiopia",7108,1,1,35669.751
 2020,"Kenya","China, Hong Kong SAR",7108,48,48,896029.373
@@ -115,30 +95,23 @@
 2020,"Kenya","Rep. of Korea",7108,2,2,47604.597
 2020,"Kenya","South Africa",7108,0,0,8138314.215
 2020,"Kenya","United Arab Emirates",7108,9,9,544765.695
-2020,"Kenya","World",710812,22,22,1105220.758
 2020,"Kenya","Cyprus",710812,1,1,50441.278
 2020,"Kenya","Ethiopia",710812,1,1,35669.751
 2020,"Kenya","China, Hong Kong SAR",710812,8,8,420535.117
 2020,"Kenya","Dem. People's Rep. of Korea",710812,1,1,6204.321
 2020,"Kenya","Rep. of Korea",710812,2,2,47604.597
 2020,"Kenya","United Arab Emirates",710812,9,9,544765.695
-2020,"Kenya","World",710813,0,172525,8613808.47
 2020,"Kenya","China, Hong Kong SAR",710813,40,40,475494.256
 2020,"Kenya","South Africa",710813,0,172485,8138314.215
-2020,"South Africa","World",7108,0,0,6717385742.973
 2020,"South Africa","Botswana",7108,0,0,23450.3
 2020,"South Africa","Namibia",7108,32.27,32.27,1039561.204
 2020,"South Africa","Areas, nes",7108,122755.08,122755.08,6716322731.468
-2020,"South Africa","World",710811,0,0.5,2.452
 2020,"South Africa","Botswana",710811,0,0.5,2.452
-2020,"South Africa","World",710813,122791.43,122791.43,6717385740.521
 2020,"South Africa","Botswana",710813,4.08,4.08,23447.848
 2020,"South Africa","Namibia",710813,32.27,32.27,1039561.204
 2020,"South Africa","Areas, nes",710813,122755.08,122755.08,6716322731.468
-2021,"South Africa","World",710811,0,73.09,1672.409
 2021,"South Africa","Botswana",710811,0,2,0.677
 2021,"South Africa","Namibia",710811,0,71.09,1671.733
-2021,"Kenya","World",7108,0,0,15473552.652
 2021,"Kenya","Cameroon",7108,1,1000,63215.519
 2021,"Kenya","Dem. Rep. of the Congo",7108,0,0,136861.266
 2021,"Kenya","Germany",7108,1,1000,1856.938
@@ -147,30 +120,24 @@
 2021,"Kenya","Switzerland",7108,134.656,0,5986598.55
 2021,"Kenya","United Arab Emirates",7108,7.987,7987.2,324526.26
 2021,"Kenya","USA",7108,0.254,254,11425.563
-2021,"South Africa","World",7108,0,0,7307599435.204
 2021,"South Africa","Botswana",7108,0,0,173.696
 2021,"South Africa","Namibia",7108,61.567,0,152592.266
 2021,"South Africa","Eswatini",7108,0,0,93.445
 2021,"South Africa","Areas, nes",7108,127556.72,127556.72,7307446575.796
-2021,"Kenya","World",710813,0,93139297.3,14866210.499
 2021,"Kenya","Dem. Rep. of the Congo",710813,0,3223000,136861.266
 2021,"Kenya","China, Hong Kong SAR",710813,0,1008210,49153.704
 2021,"Kenya","South Africa",710813,180.237,33250855.3,8693596.979
 2021,"Kenya","Switzerland",710813,134.656,55657232,5986598.55
-2021,"South Africa","World",710813,0,127892.56,7307539999.375
 2021,"South Africa","Botswana",710813,0,121.95,173.02
 2021,"South Africa","Namibia",710813,54.534,213.89,93250.559
 2021,"South Africa","Areas, nes",710813,127556.72,127556.72,7307446575.796
-2021,"Kenya","World",710812,15.241,15241.2,607342.153
 2021,"Kenya","Cameroon",710812,1,1000,63215.519
 2021,"Kenya","Germany",710812,1,1000,1856.938
 2021,"Kenya","China, Hong Kong SAR",710812,5,5000,206317.873
 2021,"Kenya","United Arab Emirates",710812,7.987,7987.2,324526.26
 2021,"Kenya","USA",710812,0.254,254,11425.563
-2021,"South Africa","World",710812,0,90,57763.42
 2021,"South Africa","Namibia",710812,7.003,19,57669.975
 2021,"South Africa","Eswatini",710812,0,71,93.445
-2022,"Kenya","World",7108,672.161,672161.4,32437409.848
 2022,"Kenya","Germany",7108,0.266,266.3,13124.206
 2022,"Kenya","China, Hong Kong SAR",7108,1,1000,56737.956
 2022,"Kenya","Italy",7108,1,1000,47961.199
@@ -185,7 +152,6 @@
 2022,"Kenya","Turkey",7108,0.036,36.1,2053.614
 2022,"Kenya","United Kingdom",7108,0.835,834.8,395015.87
 2022,"Kenya","USA",7108,1.926,1926,113324.74
-2022,"Kenya","World",710812,26.475,26475,1394898.938
 2022,"Kenya","Germany",710812,0.266,266.3,13124.206
 2022,"Kenya","China, Hong Kong SAR",710812,1,1000,56737.956
 2022,"Kenya","Italy",710812,1,1000,47961.199
@@ -197,54 +163,42 @@
 2022,"Kenya","United Arab Emirates",710812,8.591,8591,414494.11
 2022,"Kenya","Turkey",710812,0.036,36.1,2053.614
 2022,"Kenya","USA",710812,1.926,1926,113324.74
-2022,"Kenya","World",710813,645.686,645686.4,31042510.909
 2022,"Kenya","South Africa",710813,492.912,492911.6,24133432.622
 2022,"Kenya","Switzerland",710813,79.234,79234,3592842.906
 2022,"Kenya","United Arab Emirates",710813,72.706,72706,2921219.511
 2022,"Kenya","United Kingdom",710813,0.835,834.8,395015.87
-2022,"South Africa","World",7108,0,0,5264910501.442
 2022,"South Africa","Botswana",7108,0,0,471.574
 2022,"South Africa","Namibia",7108,61.97,0,176583.813
 2022,"South Africa","Eswatini",7108,0,0,189.473
 2022,"South Africa","Areas, nes",7108,91406.58,91406.58,5264733256.581
-2022,"South Africa","World",710811,0,74.02,146769.288
 2022,"South Africa","Botswana",710811,0,20,349.661
 2022,"South Africa","Namibia",710811,0,54.02,146419.628
-2022,"South Africa","World",710812,0,456.78,12767.784
 2022,"South Africa","Botswana",710812,0,450,121.914
 2022,"South Africa","Namibia",710812,1.78,1.78,12571.157
 2022,"South Africa","Eswatini",710812,0,5,74.713
-2022,"South Africa","World",710813,0,91428.94,5264750964.37
 2022,"South Africa","Namibia",710813,8.17,8.17,17593.029
 2022,"South Africa","Eswatini",710813,0,14.19,114.76
 2022,"South Africa","Areas, nes",710813,91406.58,91406.58,5264733256.581
-2023,"Kenya","World",7108,0,0,33469053.043
 2023,"Kenya","China",7108,0,0,225209.284
 2023,"Kenya","China, Hong Kong SAR",7108,25,25000,1028922.779
 2023,"Kenya","Japan",7108,1.984,1984,129432.044
 2023,"Kenya","South Africa",7108,493.43,493430.2,25425531.45
 2023,"Kenya","United Arab Emirates",7108,126.839,126838.7,6659957.487
-2023,"Kenya","World",710812,0,4208716,7538086.676
 2023,"Kenya","China",710812,0,4066000,225209.284
 2023,"Kenya","China, Hong Kong SAR",710812,25,25000,1028922.779
 2023,"Kenya","Japan",710812,1.984,1984,129432.044
 2023,"Kenya","United Arab Emirates",710812,115.732,115732,6154522.569
-2023,"Kenya","World",710813,504.537,504536.9,25930966.367
 2023,"Kenya","South Africa",710813,493.43,493430.2,25425531.45
 2023,"Kenya","United Arab Emirates",710813,11.107,11106.7,505434.917
-2023,"South Africa","World",7108,0,0,6290623861.518
 2023,"South Africa","Botswana",7108,0,0,365.74
 2023,"South Africa","Lesotho",7108,0,0,10.786
 2023,"South Africa","Namibia",7108,0,0,3746.725
 2023,"South Africa","Eswatini",7108,0,0,245.579
 2023,"South Africa","Areas, nes",7108,330343.77,330343.77,6290619492.687
-2023,"South Africa","World",710811,0,108,384.385
 2023,"South Africa","Botswana",710811,0,102,365.74
 2023,"South Africa","Namibia",710811,0,1,0.542
 2023,"South Africa","Eswatini",710811,0,5,18.103
-2023,"South Africa","World",710812,0,14,227.477
 2023,"South Africa","Eswatini",710812,0,14,227.477
-2023,"South Africa","World",710813,0,330361.17,6290623249.656
 2023,"South Africa","Lesotho",710813,0,2,10.786
 2023,"South Africa","Namibia",710813,5.404,15.4,3746.183
 2023,"South Africa","Areas, nes",710813,330343.77,330343.77,6290619492.687

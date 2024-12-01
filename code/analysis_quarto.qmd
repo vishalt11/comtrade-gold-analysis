@@ -1,0 +1,521 @@
+---
+title: "DSB - Analysis"
+author: "Vishal Thamizharasan"
+date: "December 01, 2024"
+toc: true
+format:
+  html:
+    html-math-method: katex
+    code-tools: true
+    self-contained: true
+execute:
+  warning: false
+---
+
+## Introduction
+
+```{r}
+library(ggplot2)
+library(tidyverse)
+library(lubridate)
+library(knitr)
+library(RColorBrewer)
+library(wesanderson)
+library(patchwork)
+library(scales)
+library(gt)
+```
+
+
+```{r}
+tdf <- read.csv('../data/yearly_cleaned_data.csv')
+df <- read.csv("../data/cleaned_monthly_export.csv")
+
+df$date <- as.Date(df$date)
+tdf$refYear <- as.Date(tdf$refYear)
+
+gold_df <- read.csv('../data/gold_prices_monthly.csv')
+gold_df$date <- as.Date(gold_df$date, format = '%m/%d/%Y')
+gold_df$date <- format(gold_df$date,"%Y-%m-01")
+gold_df$priceUSD_troyounce <- 
+  as.numeric(gsub(",", "", gold_df$priceUSD_troyounce))*32.1507
+```
+
+```{r}
+r1 <- df[df$cmdCode == 7108 & df$partnerDesc != 'World',] %>% 
+  group_by(reporterDesc, partnerDesc) %>% 
+  summarise(total_pvalue = sum(primaryValue), total_qty = sum(altQty))
+
+r2 <- tdf[tdf$cmdCode == 7108 & tdf$partnerDesc != 'World',] %>% 
+  group_by(reporterDesc, partnerDesc) %>% 
+  summarise(total_pvalue = sum(primaryValue), total_qty = sum(altQty))
+
+percent_diff <- function(old_value, new_value) {
+  round(((new_value - old_value) / old_value),2)
+}
+
+#kable(head(r1, 5), caption = 'Monthly data')
+
+#kable(head(r2, 5), caption = 'Yearly data')
+
+t0 <- inner_join(r1, r2, by = c("partnerDesc", "reporterDesc")) %>% 
+  select(reporterDesc, partnerDesc, 
+         total_pvalue.x, total_pvalue.y,
+         total_qty.x, total_qty.y) %>%
+  mutate(Perc_diffpval = percent_diff(total_pvalue.x, total_pvalue.y),
+         Perc_diffqty = percent_diff(total_qty.x, total_qty.y)) %>%
+  rename(Reporter = reporterDesc, Partner = partnerDesc) %>%
+  select(Reporter, Partner, total_pvalue.x, total_pvalue.y, Perc_diffpval,
+         total_qty.x, total_qty.y, Perc_diffqty)
+
+tab <- 
+  gt(t0) |> 
+  tab_header(
+    title = "Monthly vs Yearly Aggregated Data"
+  ) |> 
+  fmt_percent(
+    columns = c(Perc_diffpval, Perc_diffqty),
+    decimals = 2
+  ) |> 
+  fmt_currency(
+    columns = c(total_pvalue.x, total_pvalue.y),
+    currency = "USD",
+    decimals = 0
+  ) |> 
+  fmt_number(
+    columns = c(total_qty.x, total_qty.y),
+    decimals = 0
+  ) |>
+  data_color(
+    columns = c(Perc_diffpval, Perc_diffqty),
+    fn = \(v) lapply(v, \(x) if (is.na(x)) "grey" else if (x < 0) "darkred" else if (x > 0) "darkgreen" else "grey"),
+    apply_to = "text"
+  ) |>
+  cols_label(
+    total_pvalue.x = "Monthly Value",
+    total_pvalue.y = "Yearly Value",
+    Perc_diffpval = "Difference Value (%)",
+    total_qty.x = "Monthly Quantity",
+    total_qty.y = "Yearly Quantity",
+    Perc_diffqty = "Difference Qty (%)"
+  ) |>
+  # gtExtras::gt_highlight_rows(
+  #  rows = 1,
+  #  fill = "lightgrey",
+  #  bold_target_only = TRUE,
+  #  target_col = Partner
+  # ) |>
+  tab_style(
+    style = cell_text(weight = "bold"),
+    locations = cells_row_groups(groups = 1:2)
+  )
+
+
+tab
+# Primary Values in Yearly that are not same in Monthly
+#length(unique(r2$total_pvalue[! r2$total_pvalue %in% r1$total_pvalue]))
+
+# Quantity Values in Yearly that are not same in Monthly
+#length(unique(r2$total_qty[! r2$total_qty %in% r1$total_qty]))
+
+#unique(r2$partnerDesc[! r2$partnerDesc %in% r1$partnerDesc])
+```
+
+```{r}
+df$qtyTransform <-df$altQty/df$qty
+
+unique(df$qtyTransform)
+
+df$unit_price <- df$primaryValue/df$altQty
+```
+
+
+```{r}
+hist(df$unit_price)
+```
+
+```{r}
+# Graph 2
+west <- c("USA", "United Kingdom", "Spain", "France", "Germany", "Turkey", "Italy", 
+          "Japan", "Rep. of Korea", "Switzerland", "Canada", "Cyprus", "Slovenia")
+africa <- c('Cameroon', 'Dem. Rep. of the Congo', 'Nigeria', 'South Africa', 'Ethiopia', 'Eswatini')
+ME <- c('United Arab Emirates', 'Qatar')
+SA <- c('Paraguay')
+
+cmdcode_unitprice_plot = function(df, Reporter){
+
+  plot_df <- df[df$reporterDesc == Reporter & df$cmdCode != '7108',]
+  
+
+  plot_df$ctyGroup <- NA
+  
+  legTitle <- 'Country'
+  
+  if(Reporter == 'Kenya'){
+    plot_df[plot_df$partnerDesc %in% africa,]$ctyGroup <- 'Africa'
+    plot_df[plot_df$partnerDesc %in% west,]$ctyGroup <- 'West'
+    plot_df[plot_df$partnerDesc %in% c('China', 'China, Hong Kong SAR'),]$ctyGroup <- 'China'
+    plot_df[plot_df$partnerDesc == 'Dem. People\'s Rep. of Korea',]$ctyGroup <- 'NK'
+    plot_df[plot_df$partnerDesc %in% ME,]$ctyGroup <- 'ME'
+    plot_df[plot_df$partnerDesc %in% SA,]$ctyGroup <- 'SA'
+    legTitle <- 'Country Group'
+  }
+
+  cl <- length(unique(plot_df$partnerDesc))
+
+  g <- ggplot(data = plot_df, aes(x = date)) + 
+    geom_point(aes(y = gold_price), color = 'gold', size=2) + 
+    geom_line(aes(y = gold_price), color = 'gold') +
+    geom_point(aes(y = unit_price, color = 
+                     !!ifelse(Reporter == 'Kenya', sym("ctyGroup"), sym("partnerDesc"))), size=2) + 
+    scale_x_date(date_breaks = "1 year") + 
+    scale_y_continuous(limits = c(0, 75000)) +
+    theme_bw() + 
+    theme(axis.text.x = element_text(angle=45, hjust = 1)) +
+    ylab("USD/Kg") + 
+    xlab("Date") +  
+    guides(color=guide_legend(title=legTitle)) +
+    labs(title = paste(Reporter, '\'s unit price vs gold spot price'))
+  
+  if(cl <= 5){
+    g = g + scale_color_manual(values = 
+                                 wes_palette(n=length(unique(plot_df$partnerDesc)), name="Darjeeling1"))
+  }else{
+    g = g + scale_colour_brewer(palette = "Paired") 
+  }
+  
+  return(list(g, plot_df))
+}
+```
+
+```{r, warning=FALSE}
+Reporter <- 'Kenya'
+
+plot_stats = cmdcode_unitprice_plot(df, Reporter)
+
+plot_stats[[1]]
+```
+
+```{r, warning=FALSE}
+Reporter <- 'South Africa'
+
+plot_stats = cmdcode_unitprice_plot(df, Reporter)
+
+plot_stats[[1]]
+```
+
+```{r}
+temp <- data.frame(do.call(rbind, strsplit(as.character(df$unit_price), '\\.')))
+temp$altQtyUnitAbbr <- df$altQtyUnitAbbr
+
+# handle grams
+#df[which(nchar(temp$X1) == 2),]
+df[which(nchar(temp$X1) == 2 & temp$altQtyUnitAbbr == 'g'),]$altQty <- 
+  df[which(nchar(temp$X1) == 2 & temp$altQtyUnitAbbr == 'g'),]$altQty/1000
+df[which(nchar(temp$X1) == 2 & temp$altQtyUnitAbbr == 'g'),]$unit_price <- 
+  df[which(nchar(temp$X1) == 2 & temp$altQtyUnitAbbr == 'g'),]$unit_price*1000
+
+# handle milligrams
+df[which(temp$X1 == '0' & substr(temp$X2, start = 1, stop = 1) == '0'),]$altQty <- 
+  df[which(temp$X1 == '0' & substr(temp$X2, start = 1, stop = 1) == '0'),]$altQty/1000000
+
+df[which(temp$X1 == '0' & substr(temp$X2, start = 1, stop = 1) == '0'),]$unit_price <- 
+  df[which(temp$X1 == '0' & substr(temp$X2, start = 1, stop = 1) == '0'),]$unit_price*1000000
+
+# convert grams to kg
+#df[df$altQtyUnitAbbr == 'g',]$altQty <- df[df$altQtyUnitAbbr == 'g',]$altQty/1000
+#df$unit_price <- df$primaryValue/df$altQty
+
+# find the difference between gold spot price and unit price
+df$gdiff <- df$gold_price - df$unit_price
+```
+
+```{r, warning=FALSE}
+Reporter <- 'South Africa'
+
+plot_stats = cmdcode_unitprice_plot(df, Reporter)
+
+plot_stats[[1]]
+```
+
+No change for South Africa subset, this should indicate no unit conversion issues. Eg; Looking at Namibia's quantity columns, there doesn't seem to be any unit conversion errors. From what we learned in the class lecture there could be some sort of resource trade happening (ie; Gold is exchanged for Uranium ore). But lot of the trade value (primaryValue) and quantity are still too low to make sense.
+
+```{r, warning=FALSE}
+Reporter <- 'Kenya'
+
+plot_stats = cmdcode_unitprice_plot(df, Reporter)
+
+plot_stats[[1]]
+```
+
+
+```{r}
+plot_df <- plot_stats[[2]]
+ttestDF <- plot_df[plot_df$ctyGroup == 'West',] %>% select(unit_price, gold_price, date)
+ttestDF <- ttestDF[ttestDF$unit_price > 10000 & ttestDF$unit_price < 70000,]
+ttestDF <- ttestDF %>% group_by(date) %>% 
+  summarise(unit_price = mean(unit_price), gold_price = mean(gold_price)) 
+
+expected <- ttestDF$gold_price
+observed <- ttestDF$unit_price
+time <- ttestDF$date
+
+wide <- data.frame(expected, observed)
+long <- cbind(time, stack(wide))
+
+fm2 <- lm(values ~ ind/(time + 1) + 0, long)
+fm1 <- lm(values ~ ind + time + 0, long)
+anova(fm1, fm2)
+```
+
+# Graph 1
+
+```{r}
+# df$partnerDesc %in% brics & 
+plot_df <- df[df$reporterDesc == "Kenya" & df$cmdCode == 7108,]
+
+plot_df <- plot_df %>% group_by(date) %>% summarise(sum = sum(primaryValue))
+
+plot_df$gold_price <- NA
+
+plot_df <- plot_df %>%
+  complete(date = seq(date[1], date[nrow(plot_df)], by = "1 month"), 
+           fill = list(sum = 0, gold_price = 0))
+
+plot_df$gold_price <- sapply(plot_df$date, function(x) 
+  gold_df[gold_df$date == x,]$priceUSD_troyounce)
+
+yrng <- range(plot_df$sum)
+xrng <- range(plot_df$date)
+caption <- paste("Kenya Gold Exports\n", "    2017 - 2023")
+
+from <- as.Date('2020-01-01')
+to <- as.Date('2022-01-01')
+
+shade <- data.frame(from, to)
+
+breaks.vec <- seq(min(plot_df$date), max(plot_df$date), by = "6 month")
+scaleVal <- 1/90
+gpriceColor <- rgb(0.8, 0.6, 0, 0.6)
+
+ggplot(data = plot_df, aes(x = date, y = sum)) + 
+  geom_bar(stat = "identity", fill="skyblue") +
+  geom_point(aes(y = gold_price/scaleVal), size=2, color=gpriceColor) +
+  geom_line(aes(y = gold_price/scaleVal), linewidth=1.5, color=gpriceColor) + 
+  scale_x_date(expand = c(0.01,0.01), breaks = breaks.vec, date_labels = "%b-%Y") +
+  scale_y_continuous(expand = c(0,0), 
+                     limits = c(0, 7000000), breaks = seq(0, 6000000, by = 1000000), 
+                     labels = scales::label_dollar(scale_cut = scales::cut_short_scale()),
+                     sec.axis = sec_axis(~.*scaleVal, name="Gold Spot Price (USD/KG)",
+                                         labels = scales::label_dollar(scale_cut = 
+                                                         scales::cut_short_scale()),
+                                         breaks = c(30000,40000,50000,60000,70000))
+                     ) +
+  annotate(geom = "text", x = xrng[1], y = yrng[2], label = caption, 
+           hjust = 0, vjust = 1, size = 4) +
+  theme_bw() +
+  theme(axis.text.x = element_text(angle=45, hjust = 1),
+        axis.title.y = element_text(color = 'skyblue', size = 13),
+        axis.title.y.right = element_text(color = gpriceColor, size = 13)) + 
+  theme(panel.grid.minor.x = element_blank()) +
+  theme(panel.grid.minor.y = element_blank()) +
+  geom_rect(data = shade, inherit.aes=FALSE, 
+            aes(xmin = from, xmax = to, ymin = -Inf, ymax = 6000000),
+            color="transparent", fill="orange", alpha=0.2) +
+  annotate(geom = "curve", x = as.Date('2021-08-01'), y = 6300000, 
+           xend = as.Date('2020-11-01'), yend = 6050000, 
+           curvature = .3, arrow = arrow(length = unit(5, "mm"))) +
+  annotate(geom = "text", x = as.Date('2021-09-01'), y = 6300000, 
+           label = "COVID-19 Period", hjust = "left") +
+  xlab("Date") + ylab("Gold Export Value (USD)")
+```
+
+# Compare BRICS and West trade with the corresponding reporters
+
+```{r}
+
+plot_df <- df[df$bricsflag %in% c('b', 'w') & df$cmdCode == 7108,]
+
+plot_df <- plot_df %>% group_by(bricsflag, date) %>% summarise(sum = sum(primaryValue))
+breaks.vec <- seq(min(plot_df$date), max(plot_df$date), by = "3 month")
+
+# Graph 3.1 - with Y break for better readability
+
+# bottom part
+p1=ggplot(data=plot_df,aes(date,sum,fill=bricsflag))+
+  geom_bar(stat = "identity", position=position_dodge(preserve = "single"))+
+  coord_cartesian(ylim = c(0,2900000))+ #setting the down part
+  scale_y_continuous(labels = scales::label_dollar(scale_cut = scales::cut_short_scale()))+
+  ylab("Gold Export Value (USD)") + xlab("Date") +  
+  guides(fill=guide_legend(title='Country Group')) +
+  scale_fill_manual(labels = c("BRICS", "West"), values = c("red", "blue"))+
+  theme_classic()
+
+# top part
+p2=ggplot(data=plot_df,aes(date,sum,fill=bricsflag))+
+  geom_bar(stat = "identity", position=position_dodge(preserve = "single"))+
+  coord_cartesian(ylim = c(4150000,6300000))+ #setting the upper part
+  scale_y_continuous(breaks = c(4150000, 5000000, 6000000),
+                     labels = scales::label_dollar(scale_cut = scales::cut_short_scale()))+
+  scale_fill_manual(values = c("red", "blue"))+
+  guides(x = "none")+ # remove x line
+  labs( title = "Kenya gold exports to BRICS and West")+
+  theme_classic()+
+  theme(axis.text.x = element_blank(),
+        axis.ticks.x = element_blank(),
+        axis.title = element_blank(),
+        legend.position = "none", # remove legend
+        panel.background = element_blank(),
+        axis.line = element_line(colour = "black"))
+
+#patchwork
+p2/p1
+```
+
+# Export - Import descrepancies 
+
+```{r}
+selectList <- c('Mali', 'United Rep. of Tanzania', 'Ghana', 'Togo', 'Cameroon', 'Benin', 'Ethiopia',
+                'Niger', 'Madagascar', 'Rwanda', 'Mozambique', 'Senegal', 'Burundi')
+
+export <- read.csv('../data/uae_export.csv', row.names = NULL)
+colnames(export) <- colnames(export)[2:ncol(export)]
+export <- export[1:(ncol(export)-1)]
+
+import <- read.csv('../data/uae_import.csv', row.names = NULL)
+colnames(import) <- colnames(import)[2:ncol(import)]
+import <- import[1:(ncol(import)-1)]
+
+
+export <- export[export$reporterDesc %in% selectList,]
+export <- export %>% select(reporterDesc, primaryValue)
+
+import <- import[import$partnerDesc %in% selectList,]
+import <- import %>% select(partnerDesc, primaryValue)
+colnames(import) <- c('reporterDesc', 'primaryValue')
+
+export <- export[export$reporterDesc %in% unique(import$reporterDesc),]
+import <- import[import$reporterDesc %in% unique(export$reporterDesc),]
+
+wide <- data.frame(export$primaryValue, import$primaryValue)
+long <- cbind(export$reporterDesc, stack(wide))
+colnames(long) <- c('Country', 'Value', 'Flag')
+long$Value <- long$Value/1000000
+
+right_label <- long %>%
+  group_by(Country) %>%
+  arrange(desc(Value)) %>%
+  top_n(1)
+
+left_label <- long %>%
+  group_by(Country) %>%
+  arrange(desc(Value)) %>%
+  slice(2)
+
+
+# create data frame that identifies revenue differences over 20%
+big_diff <- long %>% 
+  spread(Flag, Value) %>% 
+  group_by(Country) %>% 
+  mutate(Max = max(import.primaryValue, export.primaryValue),
+         Min = min(import.primaryValue, export.primaryValue),
+         Diff = Max - Min) %>% 
+  arrange(desc(Diff)) %>%
+  filter(Diff > .2)
+
+# filter the label data frames to only include those cities where the
+# difference exceeds 20%
+right_label <- filter(right_label, Country %in% big_diff$Country)
+left_label <- filter(left_label, Country %in% big_diff$Country)
+
+# filter the main data frame to only include those cities where the 
+# difference exceeds 20%.
+highlight <- filter(long, Country %in% big_diff$Country)
+
+plot_label <- big_diff %>%
+  select(Country, Value = Max, Diff) %>%
+  right_join(right_label)
+
+p <- ggplot(long, aes(Value, Country)) +
+  geom_line(aes(group = Country), alpha = .5, color = 'gold', linewidth = 1.5) +
+  geom_point(aes(color = Flag), size = 3, alpha = .5) +
+  #geom_line(data = highlight, aes(group = Country)) +
+  geom_point(data = highlight, aes(color = Flag), size = 3, pch=21) +
+  geom_text(data = plot_label, aes(color = Flag, 
+                                   label = round(Diff, 0)),
+            size = 3, hjust = -.8)
+
+p + scale_color_manual(labels = c("Import", "Export"),values = c('gold', 'black')) +
+  scale_x_continuous(labels = scales::dollar, expand = c(0.02, 0), 
+                     limits = c(0, 2500),
+                     breaks = seq(0, 2000, by = 500)) +
+  scale_y_discrete(expand = c(.02, 0)) +
+  labs(title = "Import - Export Discrepancies", subtitle = "for the year 2016") +
+  theme_minimal() +
+  theme(axis.title = element_blank(),
+        panel.grid.major.x = element_blank(),
+        panel.grid.minor = element_blank(),
+        legend.title = element_blank(),
+        legend.justification = c(0, 1), 
+        legend.position = c(.3, 1.2),
+        legend.background = element_blank(),
+        legend.direction="horizontal",
+        plot.title = element_text(size = 20, margin = margin(b = 10)),
+        plot.subtitle = element_text(size = 10, color = "darkslategrey", margin = margin(b = 25)),
+        plot.caption = element_text(size = 8, margin = margin(t = 10), color = "grey70", hjust = 0),
+        plot.margin = margin(t = 1, r = 1, b = 1, l = 1, unit = "cm"))
+
+```
+
+## Plot Output
+
+You can also embed plots, for example:
+
+```{r}
+#| label: fig-pressure
+#| fig-cap: "Pressure"
+#| code-fold: true
+
+library(ggplot2)
+dat <- data.frame(cond = rep(c("A", "B"), each=10),
+                  xvar = 1:20 + rnorm(20,sd=3),
+                  yvar = 1:20 + rnorm(20,sd=3))
+
+ggplot(dat, aes(x=xvar, y=yvar)) +
+    geom_point(shape=1) + 
+    geom_smooth() 
+```
+
+Note that the `code-fold: true` parameter was added to the code chunk to hide the code by default (click "Code" above the plot to see the code).
+
+The use of the `label` and `fig-cap` options make this a cross-referenceable figure (see @fig-pressure).
+
+## Interactivity
+
+You can also add interactive plots. For example:
+
+```{r}
+#| label: fig-temperatures
+#| fig-cap: "New Haven Temperatures"
+
+library(dygraphs)
+dygraph(nhtemp) %>% 
+  dyRangeSelector(dateWindow = c("1920-01-01", "1960-01-01"))
+```
+
+## Tables
+
+Use the `knitr::kable()` function to print tables as HTML:
+
+```{r}
+knitr::kable(head(ggplot2::diamonds))
+```
+
+
+## LaTeX Math
+
+You can also include LaTeX math:
+
+$$
+P\left(A=2\middle|\frac{A^2}{B}>4\right)
+$$
