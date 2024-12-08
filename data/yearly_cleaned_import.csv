@@ -1,0 +1,663 @@
+"date","partnerDesc","reporterDesc","cmdCode","qtyUnitAbbr","qty","altQtyUnitAbbr","altQty","primaryValue","bricsflag"
+2017-01-01,"Australia","South Africa",7108,"kg",16.767,NA,NA,648235.27,"w"
+2017-01-01,"Austria","South Africa",7108,"kg",11.436,NA,NA,468415.801,"w"
+2017-01-01,"Belgium","South Africa",7108,"kg",188.043,"g",188043,5681713.07,"w"
+2017-01-01,"Brazil","South Africa",7108,"kg",0.056,NA,NA,901,"b"
+2017-01-01,"Australia","South Africa",710812,"kg",4.74,NA,NA,179552.597,"w"
+2017-01-01,"Austria","South Africa",710812,"kg",11.436,NA,NA,468415.801,"w"
+2017-01-01,"Australia","South Africa",710813,"kg",12.027,NA,NA,468682.673,"w"
+2017-01-01,"Belgium","South Africa",710813,"kg",188.043,"g",188043,5681713.07,"w"
+2017-01-01,"Brazil","South Africa",710813,"kg",0.056,"kg",NA,901,"b"
+2017-01-01,"Canada","South Africa",7108,"kg",3224.769,NA,NA,123927658.831,"w"
+2017-01-01,"China","South Africa",7108,"kg",168126.66,"kg",168126.66,7074666081,"b"
+2017-01-01,"Czechia","South Africa",7108,"kg",4.381,"g",1234,49977,"w"
+2017-01-01,"Canada","South Africa",710812,"kg",3224.697,NA,NA,123924562.778,"w"
+2017-01-01,"China","South Africa",710812,"kg",122738.8,"kg",122738.8,5066424651,"b"
+2017-01-01,"Czechia","South Africa",710812,"kg",1.331,"g",1110,44732,"w"
+2017-01-01,"Canada","South Africa",710813,"kg",0.072,NA,NA,3096.053,"w"
+2017-01-01,"China","South Africa",710813,"kg",45387.86,"kg",45387.86,2008241430,"b"
+2017-01-01,"Czechia","South Africa",710813,"kg",3.05,"g",124,5245,"w"
+2017-01-01,"France","South Africa",7108,"kg",0.2,"g",200,719.005,"w"
+2017-01-01,"France","South Africa",710813,"kg",0.2,"g",200,719.005,"w"
+2017-01-01,"Germany","Kenya",7108,"kg",1,"g",1000,25330.236,"w"
+2017-01-01,"Germany","Kenya",710813,"kg",1,"g",1000,25330.236,"w"
+2017-01-01,"Germany","South Africa",7108,"kg",228.184,"g",228184,9060022.895,"w"
+2017-01-01,"China, Hong Kong SAR","South Africa",7108,"kg",44354,"kg",44354,1763021254.819,"b"
+2017-01-01,"Germany","South Africa",710812,"kg",228.184,"g",228184,9060022.895,"w"
+2017-01-01,"China, Hong Kong SAR","South Africa",710812,"kg",44354,"kg",44354,1763021254.819,"b"
+2017-01-01,"Indonesia","South Africa",7108,"kg",468,"kg",468,19150656,NA
+2017-01-01,"Ireland","South Africa",7108,"kg",13.678,"g",13678,403784.139,"w"
+2017-01-01,"Italy","South Africa",7108,"kg",3981,"g",3983520,136748848.946,"w"
+2017-01-01,"Japan","South Africa",7108,"kg",1,"g",1000,44186.054,"w"
+2017-01-01,"Lebanon","South Africa",7108,"kg",275,"kg",275,10636750.915,NA
+2017-01-01,"China, Macao SAR","South Africa",7108,"kg",6,"kg",6,243166.662,NA
+2017-01-01,"Mauritius","South Africa",7108,"kg",131,"kg",131,4920243.97,NA
+2017-01-01,"Indonesia","South Africa",710812,"kg",468,"kg",468,19150656,NA
+2017-01-01,"Ireland","South Africa",710812,"kg",2.29,"g",2290,72760.494,"w"
+2017-01-01,"Italy","South Africa",710812,"kg",3981,"g",3983520,136748848.946,"w"
+2017-01-01,"Japan","South Africa",710812,"kg",1,"g",1000,44186.054,"w"
+2017-01-01,"Lebanon","South Africa",710812,"kg",275,"kg",275,10636750.915,NA
+2017-01-01,"Mauritius","South Africa",710812,"kg",130,"kg",130,4919437.833,NA
+2017-01-01,"Ireland","South Africa",710813,"kg",11.388,"g",11388,331023.645,"w"
+2017-01-01,"China, Macao SAR","South Africa",710813,"kg",6,"kg",6,243166.662,NA
+2017-01-01,"Mauritius","South Africa",710813,"kg",1,"kg",1,806.137,NA
+2017-01-01,"Other Asia, nes","South Africa",7108,"kg",32,"kg",32,1299464.85,NA
+2017-01-01,"Namibia","South Africa",7108,"kg",0.003,NA,NA,102.881,NA
+2017-01-01,"Norway","South Africa",7108,"kg",56,"kg",56,1732784.82,"w"
+2017-01-01,"Poland","South Africa",7108,"kg",61.01,"g",60301,2392881,"w"
+2017-01-01,"Saudi Arabia","South Africa",7108,"kg",9483,"kg",9483,376573161.969,NA
+2017-01-01,"Other Asia, nes","South Africa",710812,"kg",32,"kg",32,1299464.85,NA
+2017-01-01,"Namibia","South Africa",710812,"kg",0.001,NA,NA,33.498,NA
+2017-01-01,"Saudi Arabia","South Africa",710812,"kg",9483,"kg",9483,376573161.969,NA
+2017-01-01,"Namibia","South Africa",710813,"kg",0.002,NA,NA,69.384,NA
+2017-01-01,"Norway","South Africa",710813,"kg",56,"kg",56,1732784.82,"w"
+2017-01-01,"Poland","South Africa",710813,"kg",61.01,"g",60301,2392881,"w"
+2017-01-01,"South Africa","Kenya",7108,"kg",39.24,"kg",39.24,1193902.559,"b"
+2017-01-01,"South Africa","Kenya",710813,"kg",39.24,"kg",39.24,1193902.559,"b"
+2017-01-01,"India","South Africa",7108,"kg",45992,"kg",45992,1871921959.359,"b"
+2017-01-01,"Singapore","South Africa",7108,"kg",2021,"kg",2021,81756623.243,NA
+2017-01-01,"South Africa","South Africa",7108,"kg",1.1,"kg",1.1,2836.506,"b"
+2017-01-01,"India","South Africa",710812,"kg",45992,"kg",45992,1871921959.359,"b"
+2017-01-01,"South Africa","South Africa",710812,"kg",1.1,"kg",1.1,2836.506,"b"
+2017-01-01,"Singapore","South Africa",710813,"kg",2021,"kg",2021,81756623.243,NA
+2017-01-01,"Switzerland","Kenya",7108,"kg",98,"kg",98,3140386.3,"w"
+2017-01-01,"United Arab Emirates","Kenya",7108,"kg",2447,"kg",2447,81219974.674,NA
+2017-01-01,"Switzerland","Kenya",710812,"kg",98,"kg",98,3140386.3,"w"
+2017-01-01,"United Arab Emirates","Kenya",710812,"kg",2361,"kg",2361,78607899.993,NA
+2017-01-01,"United Arab Emirates","Kenya",710813,"kg",86,"kg",86,2612074.681,NA
+2017-01-01,"Eswatini","South Africa",7108,"kg",0.007,NA,NA,272.527,NA
+2017-01-01,"Sweden","South Africa",7108,"kg",1,"g",1000,13243.095,"w"
+2017-01-01,"Switzerland","South Africa",7108,"kg",22803.422,NA,NA,798835961.475,"w"
+2017-01-01,"Thailand","South Africa",7108,"kg",2253,"kg",2253,90566254.68,NA
+2017-01-01,"United Arab Emirates","South Africa",7108,"kg",21163,"kg",21163,664597102.081,NA
+2017-01-01,"Switzerland","South Africa",710811,NA,NA,"kg",1,12.189,"w"
+2017-01-01,"United Arab Emirates","South Africa",710811,"kg",1,"kg",1,26534.506,NA
+2017-01-01,"Eswatini","South Africa",710812,"kg",0.005,NA,NA,204.597,NA
+2017-01-01,"Switzerland","South Africa",710812,"kg",22799,"kg",22799,798658279.346,"w"
+2017-01-01,"Thailand","South Africa",710812,"kg",2253,"kg",2253,90566254.68,NA
+2017-01-01,"United Arab Emirates","South Africa",710812,"kg",21116,"kg",21116,662993534.668,NA
+2017-01-01,"Eswatini","South Africa",710813,"kg",0.002,NA,NA,67.93,NA
+2017-01-01,"Sweden","South Africa",710813,"kg",1,"g",1000,13243.095,"w"
+2017-01-01,"Switzerland","South Africa",710813,"kg",4.421,NA,NA,177669.94,"w"
+2017-01-01,"United Arab Emirates","South Africa",710813,"kg",46,"kg",46,1577032.907,NA
+2017-01-01,"Turkey","Kenya",7108,"kg",40.123,"g",40123,1518720,"w"
+2017-01-01,"Turkey","Kenya",710812,"kg",40.123,"g",40123,1518720,"w"
+2017-01-01,"Turkey","South Africa",7108,"kg",14797.609,"g",14797609,604184143,"w"
+2017-01-01,"United Kingdom","South Africa",7108,"kg",104501,"g",104470440,4260391676.108,"w"
+2017-01-01,"USA","South Africa",7108,"kg",1025.181,NA,NA,45542572,"w"
+2017-01-01,"Zambia","South Africa",7108,"kg",0.246,NA,NA,15390.483,NA
+2017-01-01,"Zambia","South Africa",710811,"kg",0.246,"g",1,15390.483,NA
+2017-01-01,"Turkey","South Africa",710812,"kg",14797.609,"g",14797609,604184143,"w"
+2017-01-01,"USA","South Africa",710812,"kg",1022.27,NA,NA,45423602,"w"
+2017-01-01,"United Kingdom","South Africa",710813,"kg",104501,"g",104470440,4260391676.108,"w"
+2017-01-01,"USA","South Africa",710813,"kg",2.911,NA,NA,118970,"w"
+2018-01-01,"Azerbaijan","South Africa",7108,"kg",4019.25,"g",4019250,157304306.9,NA
+2018-01-01,"Australia","South Africa",7108,"kg",112.389,NA,NA,4448508.421,"w"
+2018-01-01,"Austria","South Africa",7108,"kg",41,"kg",41,2000265.27,"w"
+2018-01-01,"Botswana","South Africa",7108,"kg",45.627,NA,NA,30536.038,NA
+2018-01-01,"Australia","South Africa",710812,"kg",7.988,NA,NA,308091.888,"w"
+2018-01-01,"Austria","South Africa",710812,"kg",41,"kg",41,2000265.27,"w"
+2018-01-01,"Azerbaijan","South Africa",710813,"kg",4019.25,"g",4019250,157304306.9,NA
+2018-01-01,"Australia","South Africa",710813,"kg",104.402,NA,NA,4140416.532,"w"
+2018-01-01,"Botswana","South Africa",710813,"kg",45.627,"kg",35880,30536.038,NA
+2018-01-01,"Canada","Kenya",7108,"kg",3.241,"g",3241,38482.773,"w"
+2018-01-01,"Canada","Kenya",710812,"kg",3.241,"g",3241,38482.773,"w"
+2018-01-01,"Canada","South Africa",7108,"kg",2858.089,"g",2858089,108987801.814,"w"
+2018-01-01,"China","South Africa",7108,"kg",199226.54,"g",199226540,8451013372,"b"
+2018-01-01,"Czechia","South Africa",7108,"kg",2.181,"g",2581,109924,"w"
+2018-01-01,"Canada","South Africa",710812,"kg",2858.089,"g",2858089,108987801.814,"w"
+2018-01-01,"China","South Africa",710812,"kg",136762.41,"g",136762410,5695518531,"b"
+2018-01-01,"Czechia","South Africa",710812,"kg",2,"g",2400,102693,"w"
+2018-01-01,"China","South Africa",710813,"kg",62464.13,"g",62464130,2755494841,"b"
+2018-01-01,"Czechia","South Africa",710813,"kg",0.181,"g",181,7231,"w"
+2018-01-01,"Germany","South Africa",7108,"kg",122,"g",121231,4939728.341,"w"
+2018-01-01,"China, Hong Kong SAR","South Africa",7108,"kg",36916,"kg",36916,1505378251.737,"b"
+2018-01-01,"Germany","South Africa",710812,"kg",122,"g",121231,4939728.341,"w"
+2018-01-01,"China, Hong Kong SAR","South Africa",710812,"kg",36916,"kg",36916,1505378251.737,"b"
+2018-01-01,"Rep. of Korea","Kenya",7108,"kg",0.21,"kg",0.21,7525,"w"
+2018-01-01,"Rep. of Korea","Kenya",710813,"kg",0.21,"kg",0.21,7525,"w"
+2018-01-01,"Indonesia","South Africa",7108,"kg",349,"kg",349,23311487,NA
+2018-01-01,"Ireland","South Africa",7108,"kg",5.534,"g",5534,183843.833,"w"
+2018-01-01,"Italy","South Africa",7108,"kg",10305,"g",10305300,360940159.175,"w"
+2018-01-01,"China, Macao SAR","South Africa",7108,"kg",8,"kg",8,326517.506,NA
+2018-01-01,"Mauritius","South Africa",7108,"kg",69,"kg",69,2476539.984,NA
+2018-01-01,"Indonesia","South Africa",710812,"kg",349,"kg",349,23311487,NA
+2018-01-01,"Italy","South Africa",710812,"kg",10305,"g",10305300,360940159.175,"w"
+2018-01-01,"Mauritius","South Africa",710812,"kg",61,"kg",61,2473483.081,NA
+2018-01-01,"Ireland","South Africa",710813,"kg",5.534,"g",5534,183843.833,"w"
+2018-01-01,"China, Macao SAR","South Africa",710813,"kg",8,"kg",8,326517.506,NA
+2018-01-01,"Mauritius","South Africa",710813,"kg",8,"kg",8,3056.903,NA
+2018-01-01,"Nepal","Kenya",7108,"kg",1,"kg",1,1369.33,NA
+2018-01-01,"Netherlands","Kenya",7108,"kg",4.608,"g",4608,113431.258,"w"
+2018-01-01,"Nepal","Kenya",710813,"kg",1,"kg",1,1369.33,NA
+2018-01-01,"Netherlands","Kenya",710813,"kg",4.608,"g",4608,113431.258,"w"
+2018-01-01,"Other Asia, nes","South Africa",7108,"kg",11,"kg",11,455698.66,NA
+2018-01-01,"Namibia","South Africa",7108,"kg",0.069,NA,NA,2689.396,NA
+2018-01-01,"Netherlands","South Africa",7108,"kg",0.58,"g",580,26255.191,"w"
+2018-01-01,"Norway","South Africa",7108,"kg",22,"kg",22,956983.042,"w"
+2018-01-01,"Poland","South Africa",7108,"kg",16,"g",16125,698457,"w"
+2018-01-01,"Saudi Arabia","South Africa",7108,"kg",3500,"kg",3500,143704786.763,NA
+2018-01-01,"Other Asia, nes","South Africa",710812,"kg",11,"kg",11,455698.66,NA
+2018-01-01,"Namibia","South Africa",710812,"kg",0.057,NA,NA,2205.834,NA
+2018-01-01,"Saudi Arabia","South Africa",710812,"kg",3500,"kg",3500,143704786.763,NA
+2018-01-01,"Namibia","South Africa",710813,"kg",0.012,NA,NA,483.562,NA
+2018-01-01,"Netherlands","South Africa",710813,"kg",0.58,"g",580,26255.191,"w"
+2018-01-01,"Norway","South Africa",710813,"kg",22,"kg",22,956983.042,"w"
+2018-01-01,"Poland","South Africa",710813,"kg",16,"g",16125,698457,"w"
+2018-01-01,"India","South Africa",7108,"kg",25675,"kg",25675,1046427062.787,"b"
+2018-01-01,"Singapore","South Africa",7108,"kg",4609,NA,NA,184969566.744,NA
+2018-01-01,"Slovakia","South Africa",7108,"kg",0.099,"g",99,4028.234,"w"
+2018-01-01,"India","South Africa",710812,"kg",25675,"kg",25675,1046427062.787,"b"
+2018-01-01,"Singapore","South Africa",710812,"kg",49,NA,NA,2022119.324,NA
+2018-01-01,"Slovakia","South Africa",710812,"kg",0.099,"g",99,4028.234,"w"
+2018-01-01,"Singapore","South Africa",710813,"kg",4560,NA,NA,182947447.42,NA
+2018-01-01,"Switzerland","Kenya",7108,"kg",193,"kg",193,5543274.003,"w"
+2018-01-01,"United Arab Emirates","Kenya",7108,"kg",3242.66,"kg",3242.66,111136383.766,NA
+2018-01-01,"United Arab Emirates","Kenya",710811,"kg",0.1,"kg",0.1,3250.042,NA
+2018-01-01,"Switzerland","Kenya",710812,"kg",193,"kg",193,5543274.003,"w"
+2018-01-01,"United Arab Emirates","Kenya",710812,"kg",3242.56,"kg",3242.56,111133133.723,NA
+2018-01-01,"Eswatini","South Africa",7108,"kg",0.011,NA,NA,437.08,NA
+2018-01-01,"Switzerland","South Africa",7108,"kg",46158,"kg",46158,1614569042.971,"w"
+2018-01-01,"Thailand","South Africa",7108,"kg",5999,"kg",5999,238116518.38,NA
+2018-01-01,"United Arab Emirates","South Africa",7108,"kg",29049.66,"kg",29049.66,990131626.582,NA
+2018-01-01,"Eswatini","South Africa",710812,"kg",0.011,NA,NA,437.08,NA
+2018-01-01,"Switzerland","South Africa",710812,"kg",46104,"kg",46104,1612584055.747,"w"
+2018-01-01,"Thailand","South Africa",710812,"kg",5999,"kg",5999,238116518.38,NA
+2018-01-01,"United Arab Emirates","South Africa",710812,"kg",29028.8,"kg",29028.8,989356461.306,NA
+2018-01-01,"Switzerland","South Africa",710813,"kg",54,"kg",54,1984987.224,"w"
+2018-01-01,"United Arab Emirates","South Africa",710813,"kg",20.86,"kg",20.86,775165.275,NA
+2018-01-01,"Uganda","Kenya",7108,"kg",1405,"g",1416380,51249587,NA
+2018-01-01,"USA","Kenya",7108,"kg",1.762,NA,NA,74500,"w"
+2018-01-01,"USA","Kenya",710812,"kg",1.762,NA,NA,74500,"w"
+2018-01-01,"Uganda","Kenya",710813,"kg",1405,"g",1416380,51249587,NA
+2018-01-01,"Turkey","South Africa",7108,"kg",12777.225,"g",12777225,541420679,"w"
+2018-01-01,"Uganda","South Africa",7108,"kg",513,"g",515249,20195526,NA
+2018-01-01,"United Kingdom","South Africa",7108,"kg",97266,"g",97262145,3946548408.91,"w"
+2018-01-01,"USA","South Africa",7108,"kg",6436.02,NA,NA,253297805,"w"
+2018-01-01,"Zambia","South Africa",7108,"kg",0.408,NA,NA,19226.604,NA
+2018-01-01,"Zambia","South Africa",710811,"kg",0.408,"g",2,19226.604,NA
+2018-01-01,"Turkey","South Africa",710812,"kg",12777.225,"g",12777225,541420679,"w"
+2018-01-01,"USA","South Africa",710812,"kg",6435.02,NA,NA,253257907,"w"
+2018-01-01,"Uganda","South Africa",710813,"kg",513,"g",515249,20195526,NA
+2018-01-01,"United Kingdom","South Africa",710813,"kg",97266,"g",97262145,3946548408.91,"w"
+2018-01-01,"USA","South Africa",710813,"kg",1,NA,NA,39898,"w"
+2019-01-01,"Australia","South Africa",7108,"kg",1.091,NA,NA,44291.866,"w"
+2019-01-01,"Belgium","South Africa",7108,"kg",667.328,"g",667328,27120761.966,"w"
+2019-01-01,"Australia","South Africa",710811,"kg",0.471,NA,NA,18339.36,"w"
+2019-01-01,"Australia","South Africa",710812,"kg",0.619,NA,NA,25952.506,"w"
+2019-01-01,"Belgium","South Africa",710813,"kg",667.328,"g",667328,27120761.966,"w"
+2019-01-01,"Canada","South Africa",7108,"kg",2618.898,"g",2618898,109571712.978,"w"
+2019-01-01,"China","South Africa",7108,"kg",135688.44,"g",135688440,6125154371,"b"
+2019-01-01,"Czechia","South Africa",7108,"kg",36.522,"g",36522,634453,"w"
+2019-01-01,"Czechia","South Africa",710811,"kg",36.37,"g",36370,627835,"w"
+2019-01-01,"Canada","South Africa",710812,"kg",2618.898,"g",2618898,109571712.978,"w"
+2019-01-01,"China","South Africa",710812,"kg",90698.37,"g",90698370,4023362496,"b"
+2019-01-01,"China","South Africa",710813,"kg",44990.07,"g",44990070,2101791875,"b"
+2019-01-01,"Czechia","South Africa",710813,"kg",0.152,"g",152,6618,"w"
+2019-01-01,"France","South Africa",7108,"kg",0.001,"g",1,181.382,"w"
+2019-01-01,"France","South Africa",710813,"kg",0.001,"g",1,181.382,"w"
+2019-01-01,"Germany","South Africa",7108,"kg",349.626,"g",349626,17574380.557,"w"
+2019-01-01,"China, Hong Kong SAR","South Africa",7108,"kg",12961,"kg",12961,573524761.69,"b"
+2019-01-01,"Germany","South Africa",710812,"kg",349.626,"g",349626,17574380.557,"w"
+2019-01-01,"China, Hong Kong SAR","South Africa",710812,"kg",12961,"kg",12961,573524761.69,"b"
+2019-01-01,"Rep. of Korea","Kenya",7108,"kg",2,"kg",2,92856,"w"
+2019-01-01,"Rep. of Korea","Kenya",710812,"kg",2,"kg",2,92856,"w"
+2019-01-01,"Ireland","South Africa",7108,"kg",0.085,"g",85,125696.892,"w"
+2019-01-01,"Italy","South Africa",7108,"kg",18705.4,NA,NA,669546149.926,"w"
+2019-01-01,"Lebanon","South Africa",7108,"kg",26.22,"kg",26.22,1200795.76,NA
+2019-01-01,"Luxembourg","South Africa",7108,"kg",0.536,"kg",0.536,18027.439,"w"
+2019-01-01,"Mauritius","South Africa",7108,"kg",48,"kg",48,1884620.929,NA
+2019-01-01,"Italy","South Africa",710812,"kg",10016.4,"g",10016400,368988594.029,"w"
+2019-01-01,"Lebanon","South Africa",710812,"kg",26.22,"kg",26.22,1200795.76,NA
+2019-01-01,"Mauritius","South Africa",710812,"kg",45,"kg",45,1882459.681,NA
+2019-01-01,"Ireland","South Africa",710813,"kg",0.085,"g",85,125696.892,"w"
+2019-01-01,"Italy","South Africa",710813,"kg",8689,"kg",8689,300557555.897,"w"
+2019-01-01,"Luxembourg","South Africa",710813,"kg",0.536,"kg",0.536,18027.439,"w"
+2019-01-01,"Mauritius","South Africa",710813,"kg",3,"kg",3,2161.248,NA
+2019-01-01,"Netherlands","Kenya",7108,"kg",1.492,"g",1492,52827.688,"w"
+2019-01-01,"Rwanda","Kenya",7108,"kg",924.74,"kg",924.74,42706276.3,NA
+2019-01-01,"Rwanda","Kenya",710812,"kg",924.74,"kg",924.74,42706276.3,NA
+2019-01-01,"Netherlands","Kenya",710813,"kg",1.492,"g",1492,52827.688,"w"
+2019-01-01,"Other Asia, nes","South Africa",7108,"kg",9,"kg",9,434891.68,NA
+2019-01-01,"Namibia","South Africa",7108,NA,NA,NA,NA,1723.284,NA
+2019-01-01,"Nepal","South Africa",7108,"kg",0.011,NA,NA,446.18,NA
+2019-01-01,"Norway","South Africa",7108,"kg",39,"kg",39,905009.399,"w"
+2019-01-01,"Poland","South Africa",7108,"kg",0.063,"g",63,3169,"w"
+2019-01-01,"Rwanda","South Africa",7108,"kg",1511.17,"kg",1511.17,67937458.94,NA
+2019-01-01,"Saudi Arabia","South Africa",7108,"kg",5550,"kg",5550,243173869.02,NA
+2019-01-01,"Other Asia, nes","South Africa",710812,"kg",9,"kg",9,434891.68,NA
+2019-01-01,"Nepal","South Africa",710812,"kg",0.011,"kg",NA,446.18,NA
+2019-01-01,"Rwanda","South Africa",710812,"kg",1511.17,"kg",1511.17,67937458.94,NA
+2019-01-01,"Saudi Arabia","South Africa",710812,"kg",5550,"kg",5550,243173869.02,NA
+2019-01-01,"Namibia","South Africa",710813,NA,NA,"kg",36.67,1723.284,NA
+2019-01-01,"Norway","South Africa",710813,"kg",39,"kg",39,905009.399,"w"
+2019-01-01,"Poland","South Africa",710813,"kg",0.063,"g",63,3169,"w"
+2019-01-01,"South Africa","Kenya",7108,"kg",6,NA,NA,19.441,"b"
+2019-01-01,"South Africa","Kenya",710812,"kg",6,NA,NA,19.441,"b"
+2019-01-01,"India","South Africa",7108,"kg",36052,NA,NA,1604319420.581,"b"
+2019-01-01,"Singapore","South Africa",7108,"kg",230,"kg",230,10485207.038,NA
+2019-01-01,"Slovenia","South Africa",7108,"kg",0.012,"g",11.97,564.86,"w"
+2019-01-01,"India","South Africa",710812,"kg",36052,NA,NA,1604319420.581,"b"
+2019-01-01,"Singapore","South Africa",710813,"kg",230,"kg",230,10485207.038,NA
+2019-01-01,"Slovenia","South Africa",710813,"kg",0.012,"g",11.97,564.86,"w"
+2019-01-01,"Spain","Kenya",7108,"kg",2.992,"g",2992,110440.687,"w"
+2019-01-01,"Spain","Kenya",710812,"kg",2.992,"g",2992,110440.687,"w"
+2019-01-01,"Switzerland","Kenya",7108,"kg",61,"kg",61,2032563.093,"w"
+2019-01-01,"Thailand","Kenya",7108,NA,NA,NA,NA,23.585,NA
+2019-01-01,"United Arab Emirates","Kenya",7108,"kg",4564.21,"kg",4564.21,175932296.322,NA
+2019-01-01,"Thailand","Kenya",710811,NA,NA,"kg",2,23.585,NA
+2019-01-01,"Switzerland","Kenya",710812,"kg",61,"kg",61,2032563.093,"w"
+2019-01-01,"United Arab Emirates","Kenya",710812,"kg",4564.21,"kg",4564.21,175932296.322,NA
+2019-01-01,"Eswatini","South Africa",7108,"kg",0.393,NA,NA,871.04,NA
+2019-01-01,"Switzerland","South Africa",7108,"kg",60695.044,NA,NA,2192061414.619,"w"
+2019-01-01,"Thailand","South Africa",7108,NA,NA,NA,NA,41776721.224,NA
+2019-01-01,"United Arab Emirates","South Africa",7108,"kg",25817.97,"kg",25817.97,979936522.244,NA
+2019-01-01,"Thailand","South Africa",710811,NA,NA,"kg",5,28.495,NA
+2019-01-01,"Eswatini","South Africa",710812,"kg",0.012,NA,NA,487.45,NA
+2019-01-01,"Switzerland","South Africa",710812,"kg",60687,"kg",60687,2191758573.213,"w"
+2019-01-01,"Thailand","South Africa",710812,"kg",959,"kg",959,41776692.729,NA
+2019-01-01,"United Arab Emirates","South Africa",710812,"kg",25674.68,"kg",25674.68,974645256.715,NA
+2019-01-01,"Eswatini","South Africa",710813,"kg",0.381,NA,NA,383.59,NA
+2019-01-01,"Switzerland","South Africa",710813,"kg",8.044,NA,NA,302841.406,"w"
+2019-01-01,"United Arab Emirates","South Africa",710813,"kg",143.29,"kg",143.29,5291265.53,NA
+2019-01-01,"Uganda","Kenya",7108,"kg",6892.014,"g",6892014,276878248.07,NA
+2019-01-01,"Uganda","Kenya",710813,"kg",6892.014,"g",6892014,276878248.07,NA
+2019-01-01,"Turkey","South Africa",7108,"kg",3913.028,"g",3913028,166727814,"w"
+2019-01-01,"Uganda","South Africa",7108,"kg",2935.108,"g",2935108,121088260.17,NA
+2019-01-01,"United Kingdom","South Africa",7108,"kg",83025.987,"g",83025987,3830087076.427,"w"
+2019-01-01,"USA","South Africa",7108,"kg",2841.9,NA,NA,136579256,"w"
+2019-01-01,"Zambia","South Africa",7108,"kg",0.001,NA,NA,5486.616,NA
+2019-01-01,"Turkey","South Africa",710812,"kg",3913.028,"g",3913028,166727814,"w"
+2019-01-01,"USA","South Africa",710812,"kg",2839.78,NA,NA,136489302,"w"
+2019-01-01,"Zambia","South Africa",710812,"kg",0.001,"g",1,5474.188,NA
+2019-01-01,"Uganda","South Africa",710813,"kg",2935.108,"g",2935108,121088260.17,NA
+2019-01-01,"United Kingdom","South Africa",710813,"kg",83025.987,"g",83025987,3830087076.427,"w"
+2019-01-01,"USA","South Africa",710813,"kg",2.12,NA,NA,89954,"w"
+2019-01-01,"Zambia","South Africa",710813,"kg",NA,"g",NA,12.428,NA
+2020-01-01,"Australia","South Africa",7108,"kg",2.616,NA,NA,140349.604,"w"
+2020-01-01,"Belgium","South Africa",7108,"kg",616.76,"kg",616.76,29529496.464,"w"
+2020-01-01,"Australia","South Africa",710812,"kg",2.616,NA,NA,140349.604,"w"
+2020-01-01,"Belgium","South Africa",710813,"kg",616.76,"kg",616.76,29529496.464,"w"
+2020-01-01,"Canada","South Africa",7108,"kg",8361.308,"g",8361308,490669302.474,"w"
+2020-01-01,"China","South Africa",7108,"kg",22615.38,"g",22615380,1112843565,"b"
+2020-01-01,"Denmark","South Africa",7108,"kg",0.031,"g",31,2180.017,"w"
+2020-01-01,"Canada","South Africa",710812,"kg",8353.708,"g",8353708,490399333.943,"w"
+2020-01-01,"China","South Africa",710812,"kg",17855.34,"g",17855340,879820996,"b"
+2020-01-01,"Denmark","South Africa",710812,"kg",0.031,"g",31,2180.017,"w"
+2020-01-01,"Canada","South Africa",710813,"kg",7.6,"g",7600,269968.531,"w"
+2020-01-01,"China","South Africa",710813,"kg",4760.04,"g",4760040,233022569,"b"
+2020-01-01,"France","South Africa",7108,"kg",1,"g",1000,27432.121,"w"
+2020-01-01,"France","South Africa",710812,"kg",1,"g",1000,27432.121,"w"
+2020-01-01,"Germany","South Africa",7108,"kg",1088.198,"g",1088198,55781142.299,"w"
+2020-01-01,"China, Hong Kong SAR","South Africa",7108,"kg",6083,"kg",6083,317511817.769,"b"
+2020-01-01,"Germany","South Africa",710812,"kg",1088.198,"g",1088198,55781142.299,"w"
+2020-01-01,"China, Hong Kong SAR","South Africa",710812,"kg",6083,"kg",6083,317511817.769,"b"
+2020-01-01,"Rep. of Korea","Kenya",7108,"kg",1,"kg",1,41434,"w"
+2020-01-01,"Rep. of Korea","Kenya",710813,"kg",1,"kg",1,41434,"w"
+2020-01-01,"Ireland","South Africa",7108,"kg",3.929,"g",3929,108384.121,"w"
+2020-01-01,"Italy","South Africa",7108,"kg",8089.49,NA,NA,396043376.86,"w"
+2020-01-01,"Rep. of Korea","South Africa",7108,"kg",149.297,"kg",149.297,9144000,"w"
+2020-01-01,"Mauritius","South Africa",7108,"kg",4,"kg",4,141022.433,NA
+2020-01-01,"Ireland","South Africa",710812,"kg",0.078,"g",78,1883.481,"w"
+2020-01-01,"Italy","South Africa",710812,"kg",4300.49,"g",4300490,246161703.883,"w"
+2020-01-01,"Rep. of Korea","South Africa",710812,"kg",149.297,"kg",149.297,9144000,"w"
+2020-01-01,"Mauritius","South Africa",710812,"kg",3,"kg",3,140180.963,NA
+2020-01-01,"Ireland","South Africa",710813,"kg",3.851,"g",3851,106500.639,"w"
+2020-01-01,"Italy","South Africa",710813,"kg",3789,"kg",3789,149881672.978,"w"
+2020-01-01,"Mauritius","South Africa",710813,"kg",1,"kg",1,841.471,NA
+2020-01-01,"Rwanda","Kenya",7108,"kg",2803.11,"kg",2803.11,151203081.06,NA
+2020-01-01,"Rwanda","Kenya",710812,"kg",2803.11,"kg",2803.11,151203081.06,NA
+2020-01-01,"Other Asia, nes","South Africa",7108,"kg",4,"kg",4,247742.543,NA
+2020-01-01,"Namibia","South Africa",7108,NA,NA,NA,NA,1776.964,NA
+2020-01-01,"New Zealand","South Africa",7108,"kg",0.057,"g",57,4100.364,"w"
+2020-01-01,"Niger","South Africa",7108,"kg",16,"kg",16,3335.731,NA
+2020-01-01,"Poland","South Africa",7108,"kg",9.61,"g",9610,494485,"w"
+2020-01-01,"Rwanda","South Africa",7108,"kg",1565.46,"kg",1565.46,81431423.58,NA
+2020-01-01,"Saudi Arabia","South Africa",7108,"kg",5500,"kg",5500,290485738.82,NA
+2020-01-01,"Other Asia, nes","South Africa",710812,"kg",4,"kg",4,247742.543,NA
+2020-01-01,"Namibia","South Africa",710812,NA,NA,"kg",152,330.676,NA
+2020-01-01,"Rwanda","South Africa",710812,"kg",1565.46,"kg",1565.46,81431423.58,NA
+2020-01-01,"Saudi Arabia","South Africa",710812,"kg",5500,"kg",5500,290485738.82,NA
+2020-01-01,"Namibia","South Africa",710813,NA,NA,"kg",42.5,1446.288,NA
+2020-01-01,"New Zealand","South Africa",710813,"kg",0.057,"g",57,4100.364,"w"
+2020-01-01,"Niger","South Africa",710813,"kg",16,"kg",16,3335.731,NA
+2020-01-01,"Poland","South Africa",710813,"kg",9.61,"g",9610,494485,"w"
+2020-01-01,"India","South Africa",7108,"kg",23970,"kg",23970,1413127266.878,"b"
+2020-01-01,"Singapore","South Africa",7108,"kg",763.06,"kg",763.06,45895517.385,NA
+2020-01-01,"India","South Africa",710812,"kg",23970,"kg",23970,1413127266.878,"b"
+2020-01-01,"Singapore","South Africa",710812,"kg",1,"kg",1,55557.101,NA
+2020-01-01,"Singapore","South Africa",710813,"kg",762.06,"kg",762.06,45839960.284,NA
+2020-01-01,"Spain","South Africa",7108,"kg",1,"g",1000,7355.371,"w"
+2020-01-01,"Spain","South Africa",710813,"kg",1,"g",1000,7355.371,"w"
+2020-01-01,"Thailand","Kenya",7108,NA,NA,NA,NA,11.412,NA
+2020-01-01,"United Arab Emirates","Kenya",7108,"kg",1963.33,"kg",1963.33,100582714.604,NA
+2020-01-01,"Thailand","Kenya",710811,NA,NA,"kg",1,11.412,NA
+2020-01-01,"United Arab Emirates","Kenya",710812,"kg",1961.71,"kg",1961.71,100491709.287,NA
+2020-01-01,"United Arab Emirates","Kenya",710813,"kg",1.62,"kg",1.62,91005.317,NA
+2020-01-01,"Eswatini","South Africa",7108,NA,NA,NA,NA,62.47,NA
+2020-01-01,"Switzerland","South Africa",7108,"kg",32953.234,NA,NA,1718341637.082,"w"
+2020-01-01,"Thailand","South Africa",7108,"kg",401,"kg",401,22700960.828,NA
+2020-01-01,"United Arab Emirates","South Africa",7108,"kg",43427.93,"kg",43427.93,2101589273.741,NA
+2020-01-01,"United Arab Emirates","South Africa",710811,"kg",1.5,"kg",1.5,80593.335,NA
+2020-01-01,"Eswatini","South Africa",710812,NA,NA,"kg",1,62.47,NA
+2020-01-01,"Switzerland","South Africa",710812,"kg",32953,"kg",32953,1718332074.163,"w"
+2020-01-01,"Thailand","South Africa",710812,"kg",401,"kg",401,22700960.828,NA
+2020-01-01,"United Arab Emirates","South Africa",710812,"kg",43414.3,"kg",43414.3,2100871476.813,NA
+2020-01-01,"Switzerland","South Africa",710813,"kg",0.234,NA,NA,9562.918,"w"
+2020-01-01,"United Arab Emirates","South Africa",710813,"kg",12.13,"kg",12.13,637203.592,NA
+2020-01-01,"Uganda","Kenya",7108,"kg",4681,"kg",4681,242864834,NA
+2020-01-01,"United Rep. of Tanzania","Kenya",7108,"kg",30,"kg",30,1201623.18,NA
+2020-01-01,"United Rep. of Tanzania","Kenya",710812,"kg",30,"kg",30,1201623.18,NA
+2020-01-01,"Uganda","Kenya",710813,"kg",4681,"kg",4681,242864834,NA
+2020-01-01,"Turkey","South Africa",7108,"kg",2381,"g",2381000,113020819,"w"
+2020-01-01,"Uganda","South Africa",7108,"kg",992,"kg",992,58412816,NA
+2020-01-01,"United Kingdom","South Africa",7108,"kg",60003.641,"g",60003641,3363542881.113,"w"
+2020-01-01,"USA","South Africa",7108,"kg",26329.851,"g",26329851,1468647553,"w"
+2020-01-01,"United Kingdom","South Africa",710811,"kg",1,"g",1000,11535.59,"w"
+2020-01-01,"Turkey","South Africa",710812,"kg",2381,"g",2381000,113020819,"w"
+2020-01-01,"USA","South Africa",710812,"kg",26031.63,"g",26031630,1450037460,"w"
+2020-01-01,"Uganda","South Africa",710813,"kg",992,"kg",992,58412816,NA
+2020-01-01,"United Kingdom","South Africa",710813,"kg",60002.641,"g",60002641,3363531345.523,"w"
+2020-01-01,"USA","South Africa",710813,"kg",298.221,"g",298221,18610093,"w"
+2021-01-01,"Australia","South Africa",7108,"kg",362.934,NA,NA,20536818.928,"w"
+2021-01-01,"Belgium","South Africa",7108,"kg",1260.69,"kg",1260.69,57800874.753,"w"
+2021-01-01,"Botswana","South Africa",7108,NA,NA,NA,NA,116.882,NA
+2021-01-01,"Australia","South Africa",710812,"kg",362.851,NA,NA,20532952.697,"w"
+2021-01-01,"Australia","South Africa",710813,"kg",0.082,NA,NA,3866.231,"w"
+2021-01-01,"Belgium","South Africa",710813,"kg",1260.69,"kg",1260.69,57800874.753,"w"
+2021-01-01,"Botswana","South Africa",710813,NA,NA,"kg",36,116.882,NA
+2021-01-01,"Canada","Kenya",7108,"kg",0.008,"g",8,3436.541,"w"
+2021-01-01,"Canada","Kenya",710812,"kg",0.008,"g",8,3436.541,"w"
+2021-01-01,"Canada","South Africa",7108,"kg",653.564,"g",653564,37252598.452,"w"
+2021-01-01,"China","South Africa",7108,"kg",90520.685,"g",90520685,5045937091,"b"
+2021-01-01,"Denmark","South Africa",7108,"kg",2.031,"g",2031,11250.114,"w"
+2021-01-01,"Canada","South Africa",710812,"kg",598.766,"g",598766,36199995.927,"w"
+2021-01-01,"China","South Africa",710812,"kg",83485.768,"g",83485768,4692262995,"b"
+2021-01-01,"Denmark","South Africa",710812,"kg",2.031,"g",2031,11250.114,"w"
+2021-01-01,"Canada","South Africa",710813,"kg",54.798,"g",54798,1052602.525,"w"
+2021-01-01,"China","South Africa",710813,"kg",7034.917,"g",7034917,353674096,"b"
+2021-01-01,"France","Kenya",7108,"kg",0.06,"g",60,3724.449,"w"
+2021-01-01,"France","Kenya",710812,"kg",0.06,"g",60,3724.449,"w"
+2021-01-01,"Germany","Kenya",7108,"kg",0.047,"g",47,1877.554,"w"
+2021-01-01,"Germany","Kenya",710812,"kg",0.047,"g",47,1877.554,"w"
+2021-01-01,"Germany","South Africa",7108,"kg",725.421,"g",725421,41189652.628,"w"
+2021-01-01,"China, Hong Kong SAR","South Africa",7108,"kg",11006,"kg",11006,636905802.402,"b"
+2021-01-01,"Germany","South Africa",710812,"kg",725.421,"g",725421,41189652.628,"w"
+2021-01-01,"China, Hong Kong SAR","South Africa",710812,"kg",11006,"kg",11006,636905802.402,"b"
+2021-01-01,"Japan","Kenya",7108,"kg",0.03,"g",30,1840.472,"w"
+2021-01-01,"Rep. of Korea","Kenya",7108,"kg",2,"kg",2,102027,"w"
+2021-01-01,"Japan","Kenya",710813,"kg",0.03,"g",30,1840.472,"w"
+2021-01-01,"Rep. of Korea","Kenya",710813,"kg",2,"kg",2,102027,"w"
+2021-01-01,"Indonesia","South Africa",7108,"kg",90,"kg",90,5019974,NA
+2021-01-01,"Ireland","South Africa",7108,"kg",0.429,NA,NA,189867.667,"w"
+2021-01-01,"Italy","South Africa",7108,"kg",5299.94,"g",5299940,303092515.011,"w"
+2021-01-01,"Japan","South Africa",7108,"kg",0.028,"g",28,1995.364,"w"
+2021-01-01,"Rep. of Korea","South Africa",7108,"kg",0.6,"kg",0.6,345,"w"
+2021-01-01,"Malaysia","South Africa",7108,"kg",227,"kg",227,12908640.677,NA
+2021-01-01,"Mauritius","South Africa",7108,"kg",19,"kg",19,955061.724,NA
+2021-01-01,"Indonesia","South Africa",710812,"kg",90,"kg",90,5019974,NA
+2021-01-01,"Italy","South Africa",710812,"kg",5299.94,"g",5299940,303092515.011,"w"
+2021-01-01,"Malaysia","South Africa",710812,"kg",172,"kg",172,9762619.502,NA
+2021-01-01,"Mauritius","South Africa",710812,"kg",17,"kg",17,952066.818,NA
+2021-01-01,"Ireland","South Africa",710813,"kg",0.429,"g",NA,189867.667,"w"
+2021-01-01,"Japan","South Africa",710813,"kg",0.028,"g",28,1995.364,"w"
+2021-01-01,"Rep. of Korea","South Africa",710813,"kg",0.6,"kg",0.6,345,"w"
+2021-01-01,"Malaysia","South Africa",710813,"kg",55,"kg",55,3146021.175,NA
+2021-01-01,"Mauritius","South Africa",710813,"kg",2,"kg",2,2994.905,NA
+2021-01-01,"Nepal","Kenya",7108,"kg",0.1,"g",100,4336.92,NA
+2021-01-01,"Rwanda","Kenya",7108,"kg",316,"kg",316,18198509.23,NA
+2021-01-01,"Nepal","Kenya",710812,"kg",0.1,"g",100,4336.92,NA
+2021-01-01,"Rwanda","Kenya",710812,"kg",316,"kg",316,18198509.23,NA
+2021-01-01,"Other Asia, nes","South Africa",7108,"kg",240,"kg",240,13700981.302,NA
+2021-01-01,"Namibia","South Africa",7108,"kg",4.706,NA,NA,11529.404,NA
+2021-01-01,"Netherlands","South Africa",7108,"kg",0.11,"g",110,366.649,"w"
+2021-01-01,"New Zealand","South Africa",7108,"kg",0.808,"g",808,47544.207,"w"
+2021-01-01,"Poland","South Africa",7108,"kg",0.507,"g",507,34039,"w"
+2021-01-01,"Rwanda","South Africa",7108,"kg",1212,"kg",1212,70559010.1,NA
+2021-01-01,"Saudi Arabia","South Africa",7108,"kg",4518,"kg",4518,260690760.149,NA
+2021-01-01,"Netherlands","South Africa",710811,"kg",0.11,"g",110,366.649,"w"
+2021-01-01,"Other Asia, nes","South Africa",710812,"kg",240,"kg",240,13700981.302,NA
+2021-01-01,"Namibia","South Africa",710812,"kg",0.5,"kg",0.5,8604.99,NA
+2021-01-01,"New Zealand","South Africa",710812,"kg",0.808,"g",808,47544.207,"w"
+2021-01-01,"Poland","South Africa",710812,"kg",0.507,"g",507,34039,"w"
+2021-01-01,"Rwanda","South Africa",710812,"kg",1212,"kg",1212,70559010.1,NA
+2021-01-01,"Saudi Arabia","South Africa",710812,"kg",4518,"kg",4518,260690760.149,NA
+2021-01-01,"Namibia","South Africa",710813,"kg",4.206,"kg",19.05,2924.414,NA
+2021-01-01,"India","South Africa",7108,"kg",71680,"kg",71680,4103870589.599,"b"
+2021-01-01,"Singapore","South Africa",7108,"kg",5289.43,"kg",5289.43,302835010.934,NA
+2021-01-01,"South Africa","South Africa",7108,"kg",0.02,"kg",0.02,67.733,"b"
+2021-01-01,"India","South Africa",710812,"kg",71680,"kg",71680,4103870589.599,"b"
+2021-01-01,"Singapore","South Africa",710812,"kg",2057.19,"kg",2057.19,114814134.463,NA
+2021-01-01,"Singapore","South Africa",710813,"kg",3232.24,"kg",3232.24,188020876.472,NA
+2021-01-01,"South Africa","South Africa",710813,"kg",0.02,"kg",0.02,67.733,"b"
+2021-01-01,"Spain","South Africa",7108,"kg",467.056,"g",467056,27179585.868,"w"
+2021-01-01,"Spain","South Africa",710812,"kg",0.008,"g",8,16529.718,"w"
+2021-01-01,"Spain","South Africa",710813,"kg",467.048,"g",467048,27163056.149,"w"
+2021-01-01,"Switzerland","Kenya",7108,"kg",247,"kg",247,12164278.001,"w"
+2021-01-01,"United Arab Emirates","Kenya",7108,"kg",3451.45,"kg",3451.45,198736657.377,NA
+2021-01-01,"Switzerland","Kenya",710812,"kg",247,"kg",247,12164278.001,"w"
+2021-01-01,"United Arab Emirates","Kenya",710812,"kg",3450.09,"kg",3450.09,198656873.962,NA
+2021-01-01,"United Arab Emirates","Kenya",710813,"kg",1.36,"kg",1.36,79783.415,NA
+2021-01-01,"Eswatini","South Africa",7108,NA,NA,NA,NA,8.57,NA
+2021-01-01,"Sweden","South Africa",7108,"kg",0.09,"g",90,1982.145,"w"
+2021-01-01,"Switzerland","South Africa",7108,"kg",63270.624,NA,NA,3673257577.421,"w"
+2021-01-01,"Thailand","South Africa",7108,"kg",1356,"kg",1356,77226211.403,NA
+2021-01-01,"United Arab Emirates","South Africa",7108,"kg",41841.97,"kg",41841.97,2084462569.102,NA
+2021-01-01,"Eswatini","South Africa",710812,NA,NA,"kg",5,8.57,NA
+2021-01-01,"Switzerland","South Africa",710812,"kg",63269,"kg",63269,3673183526.211,"w"
+2021-01-01,"Thailand","South Africa",710812,"kg",1356,"kg",1356,77226211.403,NA
+2021-01-01,"United Arab Emirates","South Africa",710812,"kg",41097.9,"kg",41097.9,2046068084.456,NA
+2021-01-01,"Sweden","South Africa",710813,"kg",0.09,"g",90,1982.145,"w"
+2021-01-01,"Switzerland","South Africa",710813,"kg",1.624,NA,NA,74051.209,"w"
+2021-01-01,"United Arab Emirates","South Africa",710813,"kg",744.07,"kg",744.07,38394484.646,NA
+2021-01-01,"Uganda","Kenya",7108,"kg",1521.727,"g",852397,81169624.86,NA
+2021-01-01,"USA","Kenya",7108,"kg",14,"g",14000,814295,"w"
+2021-01-01,"USA","Kenya",710812,"kg",14,"g",14000,814295,"w"
+2021-01-01,"Uganda","Kenya",710813,"kg",1521.727,"g",852397,81169624.86,NA
+2021-01-01,"Turkey","South Africa",7108,"kg",3777.532,"g",3777532,215958473,"w"
+2021-01-01,"Uganda","South Africa",7108,"kg",979.535,"g",542972,56734848.99,NA
+2021-01-01,"United Kingdom","South Africa",7108,"kg",42487.415,"g",42487415,2472408112.294,"w"
+2021-01-01,"USA","South Africa",7108,"kg",11827.668,"g",11827668,686993060,"w"
+2021-01-01,"Turkey","South Africa",710812,"kg",3777.532,"g",3777532,215958473,"w"
+2021-01-01,"United Kingdom","South Africa",710812,"kg",0.132,"g",132,7903.008,"w"
+2021-01-01,"USA","South Africa",710812,"kg",11817.062,"g",11817062,686329078,"w"
+2021-01-01,"Uganda","South Africa",710813,"kg",979.535,"g",542972,56734848.99,NA
+2021-01-01,"United Kingdom","South Africa",710813,"kg",42487.283,"g",42487283,2472400209.286,"w"
+2021-01-01,"USA","South Africa",710813,"kg",10.606,"g",10606,663982,"w"
+2022-01-01,"Australia","South Africa",7108,"kg",26.093,NA,NA,1472423.458,"w"
+2022-01-01,"Austria","South Africa",7108,"kg",3,"kg",3,184881.642,"w"
+2022-01-01,"Belgium","South Africa",7108,"kg",2477.75,"kg",2477.75,117307131.345,"w"
+2022-01-01,"Botswana","South Africa",7108,NA,NA,NA,NA,29.603,NA
+2022-01-01,"Brazil","South Africa",7108,"kg",1,"kg",1,2173,"b"
+2022-01-01,"Botswana","South Africa",710811,NA,NA,"kg",2,29.603,NA
+2022-01-01,"Australia","South Africa",710812,"kg",22.684,NA,NA,1282092.311,"w"
+2022-01-01,"Austria","South Africa",710812,"kg",3,"kg",3,184881.642,"w"
+2022-01-01,"Australia","South Africa",710813,"kg",3.409,NA,NA,190331.147,"w"
+2022-01-01,"Belgium","South Africa",710813,"kg",2477.75,"kg",2477.75,117307131.345,"w"
+2022-01-01,"Brazil","South Africa",710813,"kg",1,"kg",1,2173,"b"
+2022-01-01,"Canada","South Africa",7108,"kg",2777.968,"g",2777968,174332059.222,"w"
+2022-01-01,"China","South Africa",7108,"kg",158870.866,"g",158870866,8852769917,"b"
+2022-01-01,"Canada","South Africa",710812,"kg",2751.681,"g",2751681,172918882.437,"w"
+2022-01-01,"China","South Africa",710812,"kg",153155.24,"g",153155240,8565523479,"b"
+2022-01-01,"Canada","South Africa",710813,"kg",26.287,"g",26287,1413176.785,"w"
+2022-01-01,"China","South Africa",710813,"kg",5715.626,"g",5715626,287246438,"b"
+2022-01-01,"Estonia","South Africa",7108,"kg",9.331,"g",9331.04,518924.63,"w"
+2022-01-01,"France","South Africa",7108,"kg",0.003,"g",3,6079.25,"w"
+2022-01-01,"Estonia","South Africa",710812,"kg",9.331,"g",9331.04,518924.63,"w"
+2022-01-01,"France","South Africa",710812,"kg",0.003,"g",3,6079.25,"w"
+2022-01-01,"Germany","South Africa",7108,"kg",355.709,"g",355709,20515143.798,"w"
+2022-01-01,"China, Hong Kong SAR","South Africa",7108,"kg",10506,"kg",10506,599748547.025,"b"
+2022-01-01,"Germany","South Africa",710812,"kg",355.709,"g",355709,20515143.798,"w"
+2022-01-01,"China, Hong Kong SAR","South Africa",710812,"kg",10500,"kg",10500,599389002.01,"b"
+2022-01-01,"China, Hong Kong SAR","South Africa",710813,"kg",6,"kg",6,359545.015,"b"
+2022-01-01,"Rep. of Korea","Kenya",7108,"kg",51,"kg",51,2068714,"w"
+2022-01-01,"Rep. of Korea","Kenya",710812,"kg",45,"kg",45,1763300,"w"
+2022-01-01,"Rep. of Korea","Kenya",710813,"kg",6,"kg",6,305414,"w"
+2022-01-01,"Indonesia","South Africa",7108,"kg",850,"kg",850,45250336,NA
+2022-01-01,"Ireland","South Africa",7108,"kg",0.283,NA,NA,62471.055,"w"
+2022-01-01,"Italy","South Africa",7108,"kg",4833.5,NA,NA,276549782.057,"w"
+2022-01-01,"Kenya","South Africa",7108,"kg",0.58,"g",580,865.425,NA
+2022-01-01,"Rep. of Korea","South Africa",7108,"kg",0.96,"kg",0.96,52455,"w"
+2022-01-01,"China, Macao SAR","South Africa",7108,"kg",30,"kg",30,1575477.631,NA
+2022-01-01,"Mauritius","South Africa",7108,"kg",20,"kg",20,409458.307,NA
+2022-01-01,"Kenya","South Africa",710811,"kg",0.58,"g",580,865.425,NA
+2022-01-01,"Indonesia","South Africa",710812,"kg",850,"kg",850,45250336,NA
+2022-01-01,"Ireland","South Africa",710812,"kg",0.123,"g",NA,6946.962,"w"
+2022-01-01,"Italy","South Africa",710812,"kg",4730.5,"g",4730500,272774733.297,"w"
+2022-01-01,"Rep. of Korea","South Africa",710812,"kg",0.96,"kg",0.96,52455,"w"
+2022-01-01,"Mauritius","South Africa",710812,"kg",19,"kg",19,407727.316,NA
+2022-01-01,"Ireland","South Africa",710813,"kg",0.16,"g",NA,55524.094,"w"
+2022-01-01,"Italy","South Africa",710813,"kg",103,"kg",103,3775048.761,"w"
+2022-01-01,"China, Macao SAR","South Africa",710813,"kg",30,"kg",30,1575477.631,NA
+2022-01-01,"Mauritius","South Africa",710813,"kg",1,"kg",1,1730.991,NA
+2022-01-01,"Nepal","Kenya",7108,"kg",0.02,"g",20,401.082,NA
+2022-01-01,"Rwanda","Kenya",7108,"kg",2130,"kg",2130,124470422.44,NA
+2022-01-01,"Nepal","Kenya",710812,"kg",0.02,"g",20,401.082,NA
+2022-01-01,"Rwanda","Kenya",710812,"kg",2130,"kg",2130,124470422.44,NA
+2022-01-01,"Other Asia, nes","South Africa",7108,"kg",0.032,NA,NA,1846.63,NA
+2022-01-01,"Mozambique","South Africa",7108,"kg",0.01,"g",10,53.264,NA
+2022-01-01,"Namibia","South Africa",7108,NA,NA,NA,NA,10557.852,NA
+2022-01-01,"New Zealand","South Africa",7108,"kg",4,"g",4000,232375.011,"w"
+2022-01-01,"Poland","South Africa",7108,"kg",9.33,"g",9330,534189,"w"
+2022-01-01,"Rwanda","South Africa",7108,"kg",1162,"kg",1162,65901661.6,NA
+2022-01-01,"Mozambique","South Africa",710811,"kg",0.01,"g",10,53.264,NA
+2022-01-01,"Namibia","South Africa",710811,NA,NA,"kg",0.4,1.223,NA
+2022-01-01,"Namibia","South Africa",710812,NA,NA,"kg",1,64.197,NA
+2022-01-01,"Rwanda","South Africa",710812,"kg",1162,"kg",1162,65901661.6,NA
+2022-01-01,"Other Asia, nes","South Africa",710813,"kg",0.032,NA,NA,1846.63,NA
+2022-01-01,"Namibia","South Africa",710813,NA,NA,"kg",31,10492.432,NA
+2022-01-01,"New Zealand","South Africa",710813,"kg",4,"g",4000,232375.011,"w"
+2022-01-01,"Poland","South Africa",710813,"kg",9.33,"g",9330,534189,"w"
+2022-01-01,"Slovenia","Kenya",7108,"kg",0.155,"g",155,8861.775,"w"
+2022-01-01,"Slovenia","Kenya",710812,"kg",0.155,"g",155,8861.775,"w"
+2022-01-01,"India","South Africa",7108,"kg",55980,"kg",55980,3328792791.431,"b"
+2022-01-01,"Singapore","South Africa",7108,"kg",6127.68,"kg",6127.68,350121696.425,NA
+2022-01-01,"India","South Africa",710812,"kg",55980,"kg",55980,3328792791.431,"b"
+2022-01-01,"Singapore","South Africa",710813,"kg",6127.68,"kg",6127.68,350121696.425,NA
+2022-01-01,"Spain","Kenya",7108,"kg",0.984,"g",984,55669.268,"w"
+2022-01-01,"Spain","Kenya",710813,"kg",0.984,"g",984,55669.268,"w"
+2022-01-01,"Spain","South Africa",7108,"kg",377.161,"g",377161,20426772.883,"w"
+2022-01-01,"Spain","South Africa",710813,"kg",377.161,"g",377161,20426772.883,"w"
+2022-01-01,"Switzerland","Kenya",7108,"kg",80,"kg",80,3694458.947,"w"
+2022-01-01,"United Arab Emirates","Kenya",7108,"kg",6648.8,"kg",6648.8,376808377.769,NA
+2022-01-01,"Switzerland","Kenya",710812,"kg",80,"kg",80,3694458.947,"w"
+2022-01-01,"United Arab Emirates","Kenya",710812,"kg",6648.8,"kg",6648.8,376808377.769,NA
+2022-01-01,"Eswatini","South Africa",7108,NA,NA,NA,NA,192.1,NA
+2022-01-01,"Switzerland","South Africa",7108,"kg",97402,"kg",97402,5632385485.649,"w"
+2022-01-01,"Thailand","South Africa",7108,"kg",1594,"kg",1594,89560425.388,NA
+2022-01-01,"United Arab Emirates","South Africa",7108,"kg",31240.58,"kg",31240.58,1622510524.685,NA
+2022-01-01,"Switzerland","South Africa",710811,"kg",134,"kg",134,7387132.442,"w"
+2022-01-01,"Eswatini","South Africa",710812,NA,NA,"kg",5,69.62,NA
+2022-01-01,"Switzerland","South Africa",710812,"kg",97262,"kg",97262,5624807145.402,"w"
+2022-01-01,"Thailand","South Africa",710812,"kg",1594,"kg",1594,89560425.388,NA
+2022-01-01,"United Arab Emirates","South Africa",710812,"kg",29869.8,"kg",29869.8,1549244719.515,NA
+2022-01-01,"Eswatini","South Africa",710813,NA,NA,"kg",124.15,122.48,NA
+2022-01-01,"Switzerland","South Africa",710813,"kg",6,"kg",6,191207.804,"w"
+2022-01-01,"United Arab Emirates","South Africa",710813,"kg",1370.78,"kg",1370.78,73265805.17,NA
+2022-01-01,"USA","Kenya",7108,"kg",13.99,"g",13990,797900,"w"
+2022-01-01,"USA","Kenya",710812,"kg",13.99,"g",13990,797900,"w"
+2022-01-01,"Turkey","South Africa",7108,"kg",9859.101,"g",9859101,566656022,"w"
+2022-01-01,"United Kingdom","South Africa",7108,"kg",6916.621,"g",6916621,383727298.851,"w"
+2022-01-01,"USA","South Africa",7108,"kg",8078.216,"g",8078216,496928520,"w"
+2022-01-01,"United Kingdom","South Africa",710811,"kg",0.54,"g",540,4017.001,"w"
+2022-01-01,"Turkey","South Africa",710812,"kg",9859.101,"g",9859101,566656022,"w"
+2022-01-01,"USA","South Africa",710812,"kg",7152.505,"g",7152505,440208176,"w"
+2022-01-01,"United Kingdom","South Africa",710813,"kg",6916.081,"g",6916081,383723281.85,"w"
+2022-01-01,"USA","South Africa",710813,"kg",925.711,"g",925711,56720344,"w"
+2023-01-01,"Australia","Kenya",7108,"kg",0.759,NA,NA,44548.557,"w"
+2023-01-01,"Australia","Kenya",710813,"kg",0.759,NA,NA,44548.557,"w"
+2023-01-01,"Australia","South Africa",7108,"kg",552.562,NA,NA,33523682.865,"w"
+2023-01-01,"Austria","South Africa",7108,"kg",24,"kg",24,1564923.318,"w"
+2023-01-01,"Bahrain","South Africa",7108,"kg",4.563,NA,NA,276819.765,NA
+2023-01-01,"Belgium","South Africa",7108,"kg",1657.859,NA,NA,89373265.626,"w"
+2023-01-01,"Botswana","South Africa",7108,NA,NA,NA,NA,93.115,NA
+2023-01-01,"Brazil","South Africa",7108,"kg",0.244,NA,NA,4323,"b"
+2023-01-01,"Botswana","South Africa",710811,NA,NA,"kg",2,1.097,NA
+2023-01-01,"Australia","South Africa",710812,"kg",552.562,NA,NA,33523682.865,"w"
+2023-01-01,"Austria","South Africa",710812,"kg",24,"kg",24,1564923.318,"w"
+2023-01-01,"Bahrain","South Africa",710812,"kg",4.563,NA,NA,276819.765,NA
+2023-01-01,"Belgium","South Africa",710813,"kg",1657.859,NA,NA,89373265.626,"w"
+2023-01-01,"Botswana","South Africa",710813,NA,NA,"kg",15,92.017,NA
+2023-01-01,"Brazil","South Africa",710813,"kg",0.244,"kg",NA,4323,"b"
+2023-01-01,"Czechia","Kenya",7108,"kg",0.225,"g",225,10886,"w"
+2023-01-01,"Czechia","Kenya",710811,"kg",0.225,"g",225,10886,"w"
+2023-01-01,"Canada","South Africa",7108,"kg",13253.003,"g",13253003,904643412.703,"w"
+2023-01-01,"China","South Africa",7108,"kg",167100.977,"g",167100977,10086540485,"b"
+2023-01-01,"Cyprus","South Africa",7108,"kg",0.919,"g",919,58611.247,"w"
+2023-01-01,"Czechia","South Africa",7108,"kg",0.062,"g",62,4041,"w"
+2023-01-01,"Canada","South Africa",710812,"kg",13247.779,"g",13247779,904081167.99,"w"
+2023-01-01,"China","South Africa",710812,"kg",160280.59,"g",160280590,9710424312,"b"
+2023-01-01,"Canada","South Africa",710813,"kg",5.224,"g",5224,562244.714,"w"
+2023-01-01,"China","South Africa",710813,"kg",6820.387,"g",6820387,376116173,"b"
+2023-01-01,"Cyprus","South Africa",710813,"kg",0.919,"g",919,58611.247,"w"
+2023-01-01,"Czechia","South Africa",710813,"kg",0.062,"g",62,4041,"w"
+2023-01-01,"Germany","South Africa",7108,"kg",79.491,"g",79491,4980112.416,"w"
+2023-01-01,"China, Hong Kong SAR","South Africa",7108,"kg",20903,"kg",20903,1304825178.552,"b"
+2023-01-01,"Germany","South Africa",710812,"kg",79.429,"g",79429,4976217.687,"w"
+2023-01-01,"China, Hong Kong SAR","South Africa",710812,"kg",20903,"kg",20903,1304825178.552,"b"
+2023-01-01,"Germany","South Africa",710813,"kg",0.062,"g",62,3894.73,"w"
+2023-01-01,"Ireland","South Africa",7108,"kg",0.004,"g",4,21.625,"w"
+2023-01-01,"Israel","South Africa",7108,"kg",0.034,NA,NA,2000,NA
+2023-01-01,"Italy","South Africa",7108,"kg",8403.556,"g",8403556,522862157.267,"w"
+2023-01-01,"Mauritius","South Africa",7108,"kg",1,"kg",1,1438.767,NA
+2023-01-01,"Italy","South Africa",710812,"kg",8369.25,"g",8369250,521600797.952,"w"
+2023-01-01,"Ireland","South Africa",710813,"kg",0.004,"g",4,21.625,"w"
+2023-01-01,"Israel","South Africa",710813,"kg",0.034,NA,NA,2000,NA
+2023-01-01,"Italy","South Africa",710813,"kg",34.306,"g",34306,1261359.315,"w"
+2023-01-01,"Mauritius","South Africa",710813,"kg",1,"kg",1,1438.767,NA
+2023-01-01,"Other Asia, nes","South Africa",7108,"kg",2.064,NA,NA,135649.672,NA
+2023-01-01,"Namibia","South Africa",7108,NA,NA,NA,NA,1026.032,NA
+2023-01-01,"Netherlands","South Africa",7108,"kg",0.004,"g",4,99.477,"w"
+2023-01-01,"New Zealand","South Africa",7108,"kg",0.567,"g",567,40462.524,"w"
+2023-01-01,"Poland","South Africa",7108,"kg",6.252,"g",6252,387985,"w"
+2023-01-01,"Qatar","South Africa",7108,"kg",596.567,NA,NA,36071687.46,NA
+2023-01-01,"Saudi Arabia","South Africa",7108,"kg",1085.454,NA,NA,66527500.737,NA
+2023-01-01,"Namibia","South Africa",710811,NA,NA,"kg",1,3.545,NA
+2023-01-01,"Qatar","South Africa",710811,"kg",103.848,NA,NA,6178660.876,NA
+2023-01-01,"Other Asia, nes","South Africa",710812,"kg",2.064,NA,NA,135649.672,NA
+2023-01-01,"Namibia","South Africa",710812,NA,NA,"kg",1.4,555.599,NA
+2023-01-01,"New Zealand","South Africa",710812,"kg",0.567,"g",567,40462.524,"w"
+2023-01-01,"Qatar","South Africa",710812,"kg",492.719,NA,NA,29893026.584,NA
+2023-01-01,"Saudi Arabia","South Africa",710812,"kg",1085.454,NA,NA,66527500.737,NA
+2023-01-01,"Namibia","South Africa",710813,NA,NA,"kg",133.617,466.887,NA
+2023-01-01,"Netherlands","South Africa",710813,"kg",0.004,"g",4,99.477,"w"
+2023-01-01,"Poland","South Africa",710813,"kg",6.252,"g",6252,387985,"w"
+2023-01-01,"India","South Africa",7108,"kg",77119,"kg",77119,4821498498.281,"b"
+2023-01-01,"Singapore","South Africa",7108,"kg",388.01,"kg",388.01,23437965.219,NA
+2023-01-01,"India","South Africa",710812,"kg",77119,"kg",77119,4821498498.281,"b"
+2023-01-01,"Singapore","South Africa",710813,"kg",388.01,"kg",388.01,23437965.219,NA
+2023-01-01,"Spain","South Africa",7108,"kg",250.722,"g",250722,15740057.263,"w"
+2023-01-01,"Spain","South Africa",710813,"kg",250.722,"g",250722,15740057.263,"w"
+2023-01-01,"United Arab Emirates","Kenya",7108,"kg",9394.827,NA,NA,569970841.568,NA
+2023-01-01,"United Arab Emirates","Kenya",710811,"kg",7.75,NA,NA,461081.811,NA
+2023-01-01,"United Arab Emirates","Kenya",710812,"kg",9387.077,NA,NA,569509759.756,NA
+2023-01-01,"Eswatini","South Africa",7108,NA,NA,NA,NA,4409.29,NA
+2023-01-01,"Switzerland","South Africa",7108,"kg",59508,"kg",59508,3749197198.735,"w"
+2023-01-01,"Thailand","South Africa",7108,"kg",60,"kg",60,3776279.053,NA
+2023-01-01,"United Arab Emirates","South Africa",7108,"kg",17076.443,NA,NA,1035739244.798,NA
+2023-01-01,"Eswatini","South Africa",710811,NA,NA,"kg",5,21.43,NA
+2023-01-01,"Eswatini","South Africa",710812,NA,NA,"kg",14,223.94,NA
+2023-01-01,"Switzerland","South Africa",710812,"kg",59507,"kg",59507,3749193632.971,"w"
+2023-01-01,"Thailand","South Africa",710812,"kg",60,"kg",60,3776279.053,NA
+2023-01-01,"United Arab Emirates","South Africa",710812,"kg",16936.631,NA,NA,1027537806.982,NA
+2023-01-01,"Eswatini","South Africa",710813,NA,NA,"kg",34,4163.92,NA
+2023-01-01,"Switzerland","South Africa",710813,"kg",1,"kg",1,3565.764,"w"
+2023-01-01,"United Arab Emirates","South Africa",710813,"kg",139.812,NA,NA,8201437.816,NA
+2023-01-01,"Uganda","Kenya",7108,"kg",247.29,"g",247289.6,16126737.63,NA
+2023-01-01,"USA","Kenya",7108,"kg",12.947,"g",12947,706000,"w"
+2023-01-01,"Uganda","Kenya",710812,"kg",247.29,"g",247289.6,16126737.63,NA
+2023-01-01,"USA","Kenya",710812,"kg",12.947,"g",12947,706000,"w"
+2023-01-01,"Turkey","South Africa",7108,"kg",1706.174,"g",1706174,104669587,"w"
+2023-01-01,"Uganda","South Africa",7108,"kg",2087.231,"g",2087231,131661105.3,NA
+2023-01-01,"United Kingdom","South Africa",7108,"kg",32381.599,"g",32381599,2033242715.346,"w"
+2023-01-01,"United Rep. of Tanzania","South Africa",7108,"kg",0.014,"g",13.7,911.54,NA
+2023-01-01,"USA","South Africa",7108,"kg",14839.504,"g",14839504,942505645,"w"
+2023-01-01,"Zambia","South Africa",7108,"kg",0.001,"g",1,5687.083,NA
+2023-01-01,"Turkey","South Africa",710812,"kg",1706.174,"g",1706174,104669587,"w"
+2023-01-01,"Uganda","South Africa",710812,"kg",2026.009,"g",2026009,127734286.2,NA
+2023-01-01,"USA","South Africa",710812,"kg",14609.95,"g",14609950,928317108,"w"
+2023-01-01,"Zambia","South Africa",710812,"kg",0.001,"g",1,5687.083,NA
+2023-01-01,"Uganda","South Africa",710813,"kg",61.222,"g",61222,3926819.1,NA
+2023-01-01,"United Kingdom","South Africa",710813,"kg",32381.599,"g",32381599,2033242715.346,"w"
+2023-01-01,"United Rep. of Tanzania","South Africa",710813,"kg",0.014,"g",13.7,911.54,NA
+2023-01-01,"USA","South Africa",710813,"kg",229.554,"g",229554,14188537,"w"

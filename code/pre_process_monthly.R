@@ -9,7 +9,9 @@ gold_df$date <- as.Date(gold_df$date, format = '%m/%d/%Y')
 gold_df$date <- format(gold_df$date,"%Y-%m-01")
 gold_df$priceUSD_troyounce <- as.numeric(gsub(",", "", gold_df$priceUSD_troyounce))*32.1507
 
-file_list <- list.files(path="../data/export_data/", full.names = TRUE)
+path <- "import"
+
+file_list <- list.files(path=paste("../data/", path, "_raw_data/", sep = ""), full.names = TRUE)
 ldf <- lapply(file_list, read.csv, row.names = NULL)
 df <- do.call("rbind", ldf)
 
@@ -23,6 +25,11 @@ df <- df[1:(ncol(df)-1)]
 df <- df[c("refYear", "refMonth", "reporterDesc", "partnerDesc", "cmdCode", 
            "qtyUnitAbbr", "qty", "altQtyUnitAbbr", "altQty", "primaryValue")]
 
+if(path == "import"){
+  colnames(df) <- c("refYear", "refMonth", "partnerDesc", "reporterDesc", "cmdCode", 
+                    "qtyUnitAbbr", "qty", "altQtyUnitAbbr", "altQty", "primaryValue")
+}
+
 
 df[df$partnerDesc == "T\xfcrkiye",]$partnerDesc <- 'Turkey'
 
@@ -35,7 +42,9 @@ df[df$altQty == 0,]$altQty <- NA
 brics <- c("China, Hong Kong SAR", "China", "South Africa", "India", "Russia", "Brazil")
 
 west <- c("USA", "United Kingdom", "Spain", "France", "Germany", "Turkey", "Italy", "Japan",
-          "Rep. of Korea", "Switzerland", "Canada", "Cyprus", "Slovenia")
+          "Rep. of Korea", "Switzerland", "Canada", "Cyprus", "Slovenia", "Poland", "Ireland",
+          "Norway", "Austria", "New Zealand", "Luxembourg", "Slovakia", "Estonia", "Denmark",
+          "Netherlands", "Belgium", "Sweden", "Czechia", "Australia")
 
 df$bricsflag <- NA
 df[df$partnerDesc %in% brics,]$bricsflag <- 'b'
@@ -51,17 +60,15 @@ df$gold_price <- sapply(df$date, function(x) gold_df[gold_df$date == x,]$priceUS
 
 df <- df[df$partnerDesc != 'World',]
 
-df$cmdCode <- as.factor(df$cmdCode)
+# str(df)
 
-str(df)
+# df %>%
+#   filter(cmdCode == 7108, reporterDesc == "Kenya") %>%
+#   group_by(date) %>% 
+#   summarise(sqty = sum(qty, na.rm = TRUE), spval = sum(primaryValue),
+#             saltqty = sum(altQty, na.rm = TRUE), gval = mean(gold_price)) %>%
+#   mutate(cval_qty = spval/sqty, cval_altqty = spval/saltqty) %>%
+#   select(sqty, saltqty, spval, cval_qty, cval_altqty, gval) %>%
+#   print(n = 100)
 
-df %>%
-  filter(cmdCode == 7108, reporterDesc == "Kenya") %>%
-  group_by(date) %>% 
-  summarise(sqty = sum(qty, na.rm = TRUE), spval = sum(primaryValue),
-            saltqty = sum(altQty, na.rm = TRUE), gval = mean(gold_price)) %>%
-  mutate(cval_qty = spval/sqty, cval_altqty = spval/saltqty) %>%
-  select(sqty, saltqty, spval, cval_qty, cval_altqty, gval) %>%
-  print(n = 100)
-
-write.csv(df, "../data/cleaned_monthly_export.csv", row.names = FALSE)
+write.csv(df, paste("../data/monthly_cleaned_", path, ".csv", sep = ""), row.names = FALSE)
