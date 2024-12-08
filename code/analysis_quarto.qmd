@@ -82,15 +82,78 @@ This report analyzes gold export and import data from 2017 to 2023, focusing on 
 ```{r}
 library(ggplot2)
 library(tidyverse)
+library(sf)
+
 library(lubridate)
 library(knitr)
+
 library(RColorBrewer)
 library(wesanderson)
+
 library(patchwork)
 library(scales)
 library(gt)
 ```
 
+### Total Gold export worldwide 2017-2023
+
+```{r}
+#| code-fold: true
+
+df <- read.csv(file = "../data/all_export.csv", row.names = NULL)
+
+colnames(df) <- colnames(df)[2:ncol(df)]
+df <- df[1:(ncol(df)-1)]
+
+df <- df[c("refYear", "reporterISO", "reporterDesc", "partnerDesc", "cmdCode", 
+           "qtyUnitAbbr", "qty", "altQtyUnitAbbr", "altQty", "primaryValue")]
+
+colnames(df)[1] <- "date"
+df$date <- lubridate::ymd(df$date, truncated = 2L)
+
+df <- df %>% group_by(reporterISO) %>% summarise(total = sum(primaryValue))
+
+sf_world <- st_as_sf(rworldmap::getMap(resolution = "low")) %>% st_transform(crs = "+proj=moll") %>% dplyr::select(ISO_N3, ISO_A3)
+colnames(sf_world)[2] <- "reporterISO"
+
+test <- merge(sf_world, df, by = "reporterISO", all.x = TRUE)
+#RecordLinkage::levenshteinSim(df$reporterDesc, sf_world$name)
+
+#test$total <- rescale(test$total,newrange = c(-2,3))
+
+worldmapg <- ggplot(data = test) +
+  geom_sf(color = "grey70", fill = "grey80", lwd = 0.1) +
+  geom_sf(aes(color = total, fill = total), lwd = 0.1, alpha = 0.9) +
+  scale_x_continuous(breaks = seq(-180, 180, by = 30)) +
+  scale_y_continuous(breaks = c(seq(-80, 80, by = 20), 85)) +
+  rcartocolor::scale_color_carto_c(palette = "Fall", 
+                                     na.value = "transparent", 
+                                     guide = F, 
+                                     direction = -1
+                                     #limits = c(-2, 3)
+                                     ) +
+  rcartocolor::scale_fill_carto_c(palette = "Fall", 
+                                    na.value = "grey95",
+                                    name = NULL,
+                                    direction = -1
+                                    #limits = c(-2, 3),
+                                    #breaks = -2:3,
+                                    #labels = c("-2%", "-1%", "±0%", "+1%", "+2%", "\u2265 +3%")
+                                    ) +
+  guides(fill = guide_legend(title.position = "top", 
+                               title.hjust = 0.5, nrow = 1,
+                               label.position = "top")) +
+  labs(x = NULL, y = NULL,
+         title = "Gold Export Value over 2017 - 2023",
+         subtitle = "total gold export value in USD",
+         caption = "Data by United Nations ")
+```
+
+:::{.column-page}
+![](./worldmap_1.png)
+:::
+
+### Analysis for South Africa and Kenya
 
 ```{r}
 #| code-fold: true
@@ -131,10 +194,6 @@ r2 <- ydf[ydf$cmdCode == 7108 & ydf$partnerDesc != 'World' & ydf$flow == "Export
 percent_diff <- function(old_value, new_value) {
   round(((new_value - old_value) / old_value),2)
 }
-
-#kable(head(r1, 5), caption = 'Monthly data')
-
-#kable(head(r2, 5), caption = 'Yearly data')
 
 t0 <- inner_join(r1, r2, by = c("partnerDesc", "reporterDesc")) %>% 
   select(reporterDesc, partnerDesc, 
@@ -190,11 +249,6 @@ tab <-
 
 
 tab
-# Primary Values in Yearly that are not same in Monthly
-#length(unique(r2$total_pvalue[! r2$total_pvalue %in% r1$total_pvalue]))
-
-# Quantity Values in Yearly that are not same in Monthly
-#length(unique(r2$total_qty[! r2$total_qty %in% r1$total_qty]))
 
 cty_missing <- unique(r2$partnerDesc[! r2$partnerDesc %in% r1$partnerDesc])
 ```
@@ -221,7 +275,7 @@ africa <- c("Cameroon", "Dem. Rep. of the Congo", "Nigeria", "South Africa", "Et
 ME <- c("United Arab Emirates", "Qatar", "Bahrain", "Saudi Arabia", "Oman")
 SA <- c("Paraguay")
 
-color_vec <- c("firebrick3", "#00A08A", "#F98400", "#5BBCD6", "#C6CDF7", "#FD6467", "#CDC08C", "#004990")
+color_vec <- c("firebrick3", "#00A08A", "#F98400", "#5BBCD6", "#C6CDF7", "#000000", "#CDC08C", "#004990", "#FF0000", "#35274A")
 
 cmdcode_unitprice_plot = function(df, Reporter){
 
@@ -241,16 +295,17 @@ cmdcode_unitprice_plot = function(df, Reporter){
   cl <- length(unique(plot_df$partnerDesc))
 
   g <- ggplot(data = plot_df, aes(x = date)) + 
-    geom_point(aes(y = gold_price), color = "#FAD510", size=2.5, alpha = .5) + 
-    geom_point(aes(y = unit_price, color = !!ifelse(Reporter == 'Kenya', sym("ctyGroup"), sym("partnerDesc"))), size=2.5, alpha = .5) + 
+    geom_point(aes(y = gold_price), color = "#FAD510", size=2.5, alpha = 0.8) + 
+    geom_point(aes(y = unit_price, color = !!ifelse(Reporter == 'Kenya', sym("ctyGroup"), sym("partnerDesc"))), size=2.5, alpha = 0.8) + 
     scale_x_date(date_breaks = "1 year", date_labels = "%Y") + 
     scale_y_continuous(limits = c(0, 75000)) +
     theme_bw() + 
     ylab("USD/Kg") + xlab("Date") +  guides(color=guide_legend(title=legTitle)) +
     labs(title = paste(Reporter, '\'s unit price vs gold spot price')) +
-    theme(legend.position = "right",
+    theme(legend.position = "top",
           legend.title=element_blank()) +
-    theme(axis.text.x = element_text(angle=45, hjust = 1))
+    theme(axis.text.x = element_text(angle=45, hjust = 1)) +
+    guides(fill = guide_legend(nrow = 1))
   
   if(Reporter == 'Kenya'){ 
     g <- g + scale_color_manual(values = color_vec[1:length(unique(plot_df$ctyGroup))])
@@ -364,6 +419,12 @@ fm2 <- lm(values ~ ind/(time + 1) + 0, long)
 fm1 <- lm(values ~ ind + time + 0, long)
 anova(fm1, fm2)
 ```
+`P-value > 0.05`
+
+We ran a linear model with two slopes and and another with one slope. Both have two intercepts. 
+Then compare them using anova. The slopes are not significantly different so we cannot reject the NULL hypothesis (the slopes are same).
+
+We can also use the granger test to see if a time series model fit for gold spot price can be used for the unit price. This should indicate if the two trends are same.
 
 ### Gold Trade Graph
 
@@ -394,39 +455,43 @@ shade <- data.frame(from, to)
 
 breaks.vec <- seq(min(plot_df$date), max(plot_df$date), by = "6 month")
 scaleVal <- 1/90
-gpriceColor <- rgb(0.8, 0.6, 0, 0.6)
+gpriceColor <- "#FAD510"
 
-ggplot(data = plot_df, aes(x = date, y = sum)) + 
-  geom_bar(stat = "identity", fill="skyblue") +
-  geom_point(aes(y = gold_price/scaleVal), size=2, color=gpriceColor) +
-  geom_line(aes(y = gold_price/scaleVal), linewidth=1.5, color=gpriceColor) + 
-  scale_x_date(expand = c(0.01,0.01), breaks = breaks.vec, date_labels = "%b-%Y") +
-  scale_y_continuous(expand = c(0,0), 
-                     limits = c(0, 7000000), breaks = seq(0, 6000000, by = 1000000), 
-                     labels = scales::label_dollar(scale_cut = scales::cut_short_scale()),
-                     sec.axis = sec_axis(~.*scaleVal, name="Gold Spot Price (USD/KG)",
-                                         labels = scales::label_dollar(scale_cut = 
-                                                         scales::cut_short_scale()),
-                                         breaks = c(30000,40000,50000,60000,70000))
-                     ) +
-  annotate(geom = "text", x = xrng[1], y = yrng[2], label = caption, 
-           hjust = 0, vjust = 1, size = 4) +
-  theme_bw() +
-  theme(axis.text.x = element_text(angle=45, hjust = 1),
-        axis.title.y = element_text(color = 'skyblue', size = 13),
-        axis.title.y.right = element_text(color = gpriceColor, size = 13)) + 
-  theme(panel.grid.minor.x = element_blank()) +
-  theme(panel.grid.minor.y = element_blank()) +
-  geom_rect(data = shade, inherit.aes=FALSE, 
-            aes(xmin = from, xmax = to, ymin = -Inf, ymax = 6000000),
-            color="transparent", fill="orange", alpha=0.2) +
-  annotate(geom = "curve", x = as.Date('2021-08-01'), y = 6300000, 
-           xend = as.Date('2020-11-01'), yend = 6050000, 
-           curvature = .3, arrow = arrow(length = unit(5, "mm"))) +
-  annotate(geom = "text", x = as.Date('2021-09-01'), y = 6300000, 
-           label = "COVID-19 Period", hjust = "left") +
-  xlab("Date") + ylab("Gold Export Value (USD)")
+g <- ggplot(data = plot_df, aes(x = date, y = sum)) + 
+    geom_bar(stat = "identity", fill="#004990") +
+    geom_point(aes(y = gold_price/scaleVal), size=2, color=gpriceColor) +
+    geom_line(aes(y = gold_price/scaleVal), linewidth=1.5, color=gpriceColor) + 
+    scale_x_date(expand = c(0.01,0.01), breaks = breaks.vec, date_labels = "%b-%Y") +
+    scale_y_continuous(expand = c(0,0), limits = c(0, 7000000), breaks = seq(0, 6000000, by = 1000000), 
+                       labels = scales::label_dollar(scale_cut = scales::cut_short_scale()),
+                       sec.axis = sec_axis(~.*scaleVal, name="Gold Spot Price (USD/KG)",
+                                           labels = scales::label_dollar(scale_cut = 
+                                                           scales::cut_short_scale()),
+                                           breaks = c(30000,40000,50000,60000,70000))
+                       ) +
+    annotate(geom = "text", x = xrng[1], y = yrng[2], label = caption, 
+             hjust = 0, vjust = 1, size = 4) +
+    theme_bw() +
+    theme(axis.text.x = element_text(angle=45, hjust = 1),
+          axis.title.y = element_text(color = '#004990', size = 13),
+          axis.title.y.right = element_text(color = gpriceColor, size = 13)) + 
+    theme(panel.grid.minor.x = element_blank()) +
+    theme(panel.grid.minor.y = element_blank()) +
+    geom_rect(data = shade, inherit.aes=FALSE, aes(xmin = from, xmax = to, ymin = -Inf, ymax = Inf), color="transparent", fill="grey", alpha=0.3) +
+    annotate(geom = "curve", x = as.Date('2022-02-01'), y = 6600000, xend = as.Date('2020-12-01'), yend = 6050000, 
+             curvature = .2, arrow = arrow(length = unit(2, "mm"))) +
+    annotate(geom = "text", x = as.Date('2022-03-01'), y = 6600000, 
+             label = "COVID-19 Period", hjust = "left") +
+    xlab("Date") + ylab("Gold Export Value (USD)") 
+    #theme(plot.background = element_rect(fill = "gray60"),plot.margin = margin(t = 0, r = 0, b = 0, l = 0, unit = "cm"))
+
 ```
+
+```{r}
+#| echo: false
+g
+```
+
 
 ### Compare BRICS and West trade 
 

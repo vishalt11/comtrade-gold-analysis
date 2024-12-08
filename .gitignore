@@ -1,3 +1,7 @@
 output
 code/gt_summarytools.R
 data/global_trade
+code/analysis_report.Rmd
+code/analysis_report.pdf
+data/WUP2018-F08-Total_Growth_Rate.xls
+code/23_Population.Rmd

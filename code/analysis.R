@@ -330,3 +330,71 @@ long <- long[long$Country != 'United Arab Emirates',]
 ggplot(long, aes(Value, Country)) + 
   geom_point(aes(color = Flag)) 
 
+#-------------------------------------------------------------------------------
+
+library(tidyverse)
+
+options(scipen = 999)
+
+df <- read.csv(file = "../data/all_export.csv", row.names = NULL)
+
+colnames(df) <- colnames(df)[2:ncol(df)]
+df <- df[1:(ncol(df)-1)]
+
+df <- df[c("refYear", "reporterISO", "reporterDesc", "partnerDesc", "cmdCode", 
+           "qtyUnitAbbr", "qty", "altQtyUnitAbbr", "altQty", "primaryValue")]
+
+colnames(df)[1] <- "date"
+df$date <- lubridate::ymd(df$date, truncated = 2L)
+
+df <- df %>% group_by(reporterISO) %>% summarise(total = sum(primaryValue))
+
+sf_world <- st_as_sf(rworldmap::getMap(resolution = "low")) %>% st_transform(crs = "+proj=moll") %>% dplyr::select(ISO_N3, ISO_A3)
+colnames(sf_world)[2] <- "reporterISO"
+
+test <- merge(sf_world, df, by = "reporterISO", all.x = TRUE)
+#RecordLinkage::levenshteinSim(df$reporterDesc, sf_world$name)
+
+#test$total <- rescale(test$total,newrange = c(-2,3))
+
+ggplot(data = test) +
+  geom_sf(color = "grey70",
+          fill = "grey80",
+          lwd = 0.1) +
+  geom_sf(aes(color = total, fill = total), lwd = 0.1, alpha = 0.9) +
+  scale_x_continuous(breaks = seq(-180, 180, by = 30)) +
+  scale_y_continuous(breaks = c(seq(-80, 80, by = 20), 85)) +
+  rcartocolor::scale_color_carto_c(palette = "Fall", 
+                                   na.value = "transparent", 
+                                   guide = F, 
+                                   direction = -1
+                                   #limits = c(-2, 3)
+                                   ) +
+  rcartocolor::scale_fill_carto_c(palette = "Fall", 
+                                  na.value = "grey95",
+                                  name = NULL,
+                                  direction = -1
+                                  #limits = c(-2, 3),
+                                  #breaks = -2:3,
+                                  #labels = c("-2%", "-1%", "±0%", "+1%", "+2%", "\u2265 +3%")
+                                  ) +
+  guides(fill = guide_legend(title.position = "top", 
+                             title.hjust = 0.5, nrow = 1,
+                             label.position = "top")) +
+  labs(x = NULL, y = NULL,
+       title = "Gold Export Value over 2017 - 2023",
+       subtitle = "total gold export value in USD",
+       caption = "Data by United Nations ")
+
+
+# df[df$reporterDesc == "Cura\xe7ao",]$reporterDesc <- "Curacao"
+# df[df$reporterDesc == "T\xfcrkiye",]$reporterDesc <- "Turkey"
+# df[df$reporterDesc == "Bolivia (Plurinational State of",]$reporterDesc <- "Bolivia"
+# df[df$reporterDesc == "C\xf4te d'Ivoire",]$reporterDesc <- "Ivory Coast"
+# df[df$reporterDesc == "China, Hong Kong SAR",]$reporterDesc <- "Hong Kong S.A.R."
+# df[df$reporterDesc == "China, Macao SAR",]$reporterDesc <- "Macau S.A.R"
+# df[df$reporterDesc == "Dem. Rep. of the Congo",]$reporterDesc <- "Democratic Republic of the Congo"
+# df[df$reporterDesc == "Lao People's Dem. Rep.",]$reporterDesc <- "Laos"
+# df[df$reporterDesc == "Rep. of Korea",]$reporterDesc <- "South Korea"
+# df[df$reporterDesc == "Bosnia Herzegovina",]$reporterDesc <- "Bosnia and Herzegovina"
+# df[df$reporterDesc == "Russian Federation",]$reporterDesc <- "Russia"
