@@ -45,7 +45,7 @@ Clearly state the report’s purpose, e.g., “To identify export trends, assess
 
 ### Scope
 
-Define the focus, e.g., “This report analyzes gold export data from 2010 to 2023, focusing on five key African countries.” 
+This report analyzes gold export and import data from 2017 to 2023, focusing on two African countries: South Africa and Kenya.
 
 # Data and Methodology 
 
@@ -199,9 +199,9 @@ tab
 cty_missing <- unique(r2$partnerDesc[! r2$partnerDesc %in% r1$partnerDesc])
 ```
 
-Also the following countries:`{r} cty_missing` do not appear in the monthly aggregated data.
+Also the following countries `{r} cty_missing` do not appear in the monthly aggregated data.
 
-## Unit Value Plot
+### Unit Value Plot
 
 ```{r}
 #| code-fold: true
@@ -248,8 +248,9 @@ cmdcode_unitprice_plot = function(df, Reporter){
     theme_bw() + 
     ylab("USD/Kg") + xlab("Date") +  guides(color=guide_legend(title=legTitle)) +
     labs(title = paste(Reporter, '\'s unit price vs gold spot price')) +
-    theme(legend.position = "top") + 
-    theme(axis.text.x = element_text(angle=45, hjust = 1)) 
+    theme(legend.position = "right",
+          legend.title=element_blank()) +
+    theme(axis.text.x = element_text(angle=45, hjust = 1))
   
   if(Reporter == 'Kenya'){ 
     g <- g + scale_color_manual(values = color_vec[1:length(unique(plot_df$ctyGroup))])
@@ -264,12 +265,12 @@ cmdcode_unitprice_plot = function(df, Reporter){
 ```{r, warning=FALSE}
 #| code-fold: true
 
-Reporter <- 'Kenya'
+Reporter <- 'South Africa'
 plot_stats = cmdcode_unitprice_plot(df, Reporter)
 
 plot1 <- plot_stats[[1]]
 
-Reporter <- 'South Africa'
+Reporter <- 'Kenya'
 plot_stats = cmdcode_unitprice_plot(df, Reporter)
 
 plot2 <- plot_stats[[1]]
@@ -287,7 +288,7 @@ plot2
 ```
 :::
 
-## Quantity Column Transformation and Correction
+### Quantity Column Transformation and Correction
 
 ```{r}
 #| code-fold: true
@@ -320,14 +321,12 @@ df$gdiff <- df$gold_price - df$unit_price
 ```{r, warning=FALSE}
 #| code-fold: true
 
-Reporter <- 'Kenya'
-plot_stats = cmdcode_unitprice_plot(df, Reporter)
-
-plot1 <- plot_stats[[1]]
-
 Reporter <- 'South Africa'
 plot_stats = cmdcode_unitprice_plot(df, Reporter)
+plot1 <- plot_stats[[1]]
 
+Reporter <- 'Kenya'
+plot_stats = cmdcode_unitprice_plot(df, Reporter)
 plot2 <- plot_stats[[1]]
 ```
 
@@ -342,7 +341,8 @@ plot1
 plot2
 ```
 :::
-## Anova Test
+
+### Anova Test
 
 ```{r}
 #| code-fold: true
@@ -365,7 +365,7 @@ fm1 <- lm(values ~ ind + time + 0, long)
 anova(fm1, fm2)
 ```
 
-# Gold Trade Graph
+### Gold Trade Graph
 
 ```{r}
 #| code-fold: true
@@ -428,7 +428,7 @@ ggplot(data = plot_df, aes(x = date, y = sum)) +
   xlab("Date") + ylab("Gold Export Value (USD)")
 ```
 
-# Compare BRICS and West trade 
+### Compare BRICS and West trade 
 
 ```{r}
 #| code-fold: true
@@ -491,10 +491,12 @@ plot_grouped_bar("South Africa", ydf)
 # #patchwork
 # p2/p1
 ```
-# Export - Import Discrepancies 
+### Export - Import Discrepancies 
 
 ```{r}
 #| code-fold: true
+#| label: fig-diff
+#| fig-cap: "Differences"
 
 selectList <- c('Mali', 'United Rep. of Tanzania', 'Ghana', 'Togo', 'Cameroon', 'Benin', 'Ethiopia',
                 'Niger', 'Madagascar', 'Rwanda', 'Mozambique', 'Senegal', 'Burundi')
@@ -588,55 +590,49 @@ p + scale_color_manual(labels = c("Import", "Export"),values = c('gold', 'black'
 
 ```
 
-## Plot Output
+See figure (see @fig-diff).
 
-You can also embed plots, for example:
+# Recommendations 
 
-```{r}
-#| label: fig-pressure
-#| fig-cap: "Pressure"
-#| code-fold: true
+* Policy Interventions: 
 
-library(ggplot2)
-dat <- data.frame(cond = rep(c("A", "B"), each=10),
-                  xvar = 1:20 + rnorm(20,sd=3),
-                  yvar = 1:20 + rnorm(20,sd=3))
+Propose government policies to formalize small-scale mining and combat illegal mining. 
 
-ggplot(dat, aes(x=xvar, y=yvar)) +
-    geom_point(shape=1) + 
-    geom_smooth() 
-```
+* Trade Partnerships:  
 
-Note that the `code-fold: true` parameter was added to the code chunk to hide the code by default (click "Code" above the plot to see the code).
+E.g., “Collaborate with Asian buyers (India, China) to secure long-term contracts.” 
 
-The use of the `label` and `fig-cap` options make this a cross-referenceable figure (see @fig-pressure).
+* Infrastructure Development: 
 
-## Interactivity
+Highlight the need for better logistics and refining facilities. 
 
-You can also add interactive plots. For example:
+* Diversification: 
 
-```{r}
-#| label: fig-temperatures
-#| fig-cap: "New Haven Temperatures"
+E.g., “Encourage value addition by exporting refined gold instead of raw ore.” 
 
-library(dygraphs)
-dygraph(nhtemp) %>% 
-  dyRangeSelector(dateWindow = c("1920-01-01", "1960-01-01"))
-```
+* Investment Opportunities: 
 
-## Tables
+Identify regions with untapped mining potential. 
 
-Use the `knitr::kable()` function to print tables as HTML:
+ 
 
-```{r}
-knitr::kable(head(ggplot2::diamonds))
-```
+# Conclusion 
 
+Recap the findings, e.g., “While South Africa remains a key exporter, emerging players like Ghana and Mali present significant growth opportunities.” 
 
-## LaTeX Math
+Reinforce the importance of addressing challenges like illegal mining and unstable supply chains to maximize export potential. 
 
-You can also include LaTeX math:
+# Appendices 
 
-$$
-P\left(A=2\middle|\frac{A^2}{B}>4\right)
-$$
+Data Visuals: Include detailed graphs or maps, e.g., export volumes by region, market share comparisons. 
+
+Technical Details: Methodology breakdown, Python/R scripts (if required). 
+
+Glossary: Define terms like "refined gold," "artisanal mining," etc. 
+
+# References 
+
+Cite data sources (e.g., UN Comtrade, World Bank). 
+
+Acknowledge reports from industry experts, e.g., “Gold Mining in Africa 2023” by Mining Weekly. 
+
