@@ -13,6 +13,7 @@ library(summarytools)
 library(gt)
 library(gtExtras)
 library(summarytools)
+library(sf)
 
 options(scipen = 999)
 
@@ -333,8 +334,53 @@ ggplot(long, aes(Value, Country)) +
 #-------------------------------------------------------------------------------
 
 library(tidyverse)
+library(sf)
+library(extrafont)
+
+extrafont::loadfonts()
 
 options(scipen = 999)
+
+theme_set(theme_minimal())
+
+theme_update(
+  axis.ticks = element_blank(),
+  axis.text = element_blank(),
+  panel.grid.major = element_line(color = "grey88", 
+                                  size = 0.5),
+  panel.background = element_rect(color = NA, 
+                                  fill = "grey98"),
+  plot.background = element_rect(color = NA, 
+                                 fill = "grey98"),
+  plot.title = element_text(
+    #family = "Merriweather Sans ExtraBold", 
+    color = "black",
+    size = 25, 
+    face = "bold",
+    hjust = 0.5,
+    margin = margin(t = 24, b = 6)),
+  plot.subtitle = element_text(
+    #family = "Merriweather", 
+    color = "black",
+    size = 15, 
+    face = "italic",
+    hjust = 0.5,
+    margin = margin(t = 18, b = 0)),
+  plot.caption = element_text(
+    #family = "Merriweather Black", 
+    color = "grey60", 
+    size = 15, 
+    hjust = 0.5,
+    margin = margin(t = 0, b = 24)),
+  legend.position = "top",
+  legend.text = element_text(
+    #family = "Merriweather Sans", 
+    color = "black",
+    size = 15),
+  legend.key.width = unit(7, "lines"),
+  legend.key.height = unit(0.8, "lines")
+)
+
 
 df <- read.csv(file = "../data/all_export.csv", row.names = NULL)
 
@@ -349,43 +395,79 @@ df$date <- lubridate::ymd(df$date, truncated = 2L)
 
 df <- df %>% group_by(reporterISO) %>% summarise(total = sum(primaryValue))
 
-sf_world <- st_as_sf(rworldmap::getMap(resolution = "low")) %>% st_transform(crs = "+proj=moll") %>% dplyr::select(ISO_N3, ISO_A3)
+df <- df %>%
+  mutate(group = case_when(total >= 0 & total < 1000000 ~ '0 - 1M',
+                           total >= 1000000 & total < 500000000 ~ '1M - 500M',
+                           total >= 500000000 & total < 1000000000 ~ '500M - 1B',
+                           total >= 1000000000 & total < 10000000000 ~ '1B - 10B',
+                           total >= 10000000000 & total < 50000000000 ~ '10B - 50B',
+                           total >= 50000000000 & total < 100000000000 ~ '50B - 100B',
+                           total >= 100000000000 & total < 200000000000 ~ '100B - 200B',
+                           total >= 200000000000 ~ '200B+'
+                           ))
+
+# percent_diff <- function(old_value, new_value) {
+#   round(((new_value - old_value) / old_value),2)
+# }
+# 
+# df %>% 
+#   group_by(reporterISO, date) %>% 
+#   summarise(total = sum(primaryValue)) %>% 
+#   summarise(min = min(total), max = max(total)) %>%
+#   reframe(reporterISO = reporterISO, change = percent_diff(min, max)) %>%
+#   print(n = 150)
+
+#df %>% group_by(reporterISO) %>% summarise(min_date = min(date), max_date = max(date))
+
+sf_world <- st_as_sf(rworldmap::getMap(resolution = "low")) %>% 
+  st_transform(crs = "+proj=moll") %>% dplyr::select(ISO_N3, ISO_A3)
+
 colnames(sf_world)[2] <- "reporterISO"
 
 test <- merge(sf_world, df, by = "reporterISO", all.x = TRUE)
+test$group <- factor(test$group, levels = c("0 - 1M", "1M - 500M", "500M - 1B", 
+                                            "1B - 10B", "10B - 50B", "50B - 100B",
+                                            "100B - 200B", "200B+"))
+
 #RecordLinkage::levenshteinSim(df$reporterDesc, sf_world$name)
 
 #test$total <- rescale(test$total,newrange = c(-2,3))
 
-ggplot(data = test) +
-  geom_sf(color = "grey70",
-          fill = "grey80",
-          lwd = 0.1) +
-  geom_sf(aes(color = total, fill = total), lwd = 0.1, alpha = 0.9) +
-  scale_x_continuous(breaks = seq(-180, 180, by = 30)) +
-  scale_y_continuous(breaks = c(seq(-80, 80, by = 20), 85)) +
-  rcartocolor::scale_color_carto_c(palette = "Fall", 
-                                   na.value = "transparent", 
-                                   guide = F, 
-                                   direction = -1
-                                   #limits = c(-2, 3)
-                                   ) +
-  rcartocolor::scale_fill_carto_c(palette = "Fall", 
-                                  na.value = "grey95",
-                                  name = NULL,
-                                  direction = -1
-                                  #limits = c(-2, 3),
-                                  #breaks = -2:3,
-                                  #labels = c("-2%", "-1%", "±0%", "+1%", "+2%", "\u2265 +3%")
-                                  ) +
-  guides(fill = guide_legend(title.position = "top", 
-                             title.hjust = 0.5, nrow = 1,
-                             label.position = "top")) +
-  labs(x = NULL, y = NULL,
-       title = "Gold Export Value over 2017 - 2023",
-       subtitle = "total gold export value in USD",
-       caption = "Data by United Nations ")
+# test$highlight <- test$total
+# test[is.na(test$highlight),]$highlight <- 0
+# test[test$reporterISO == "ZAF",]$highlight <- NA
+# test[test$reporterISO == "KEN",]$highlight <- NA
+# 
+# test$total <- round(test$total/1000000, 0)
 
+worldmap <- ggplot(data = test) +
+              geom_sf(color = "grey70",
+                      fill = "grey80",
+                      lwd = 0.1) +
+              geom_sf(aes(color = group, fill = group), lwd = 0.1, alpha = 0.9) +
+              #scale_x_continuous(breaks = seq(-180, 180, by = 30)) +
+              #scale_y_continuous(breaks = c(seq(-80, 80, by = 20), 85)) +
+              rcartocolor::scale_color_carto_d(palette = "ag_GrnYl", 
+                                               na.value = "transparent", 
+                                               guide = "none", 
+                                               direction = -1) +
+              rcartocolor::scale_fill_carto_d(palette = "ag_GrnYl", 
+                                              na.value = "grey95",
+                                              name = NULL,
+                                              breaks = c("0 - 1M", "1M - 500M", "500M - 1B", "1B - 10B", "10B - 50B", "50B - 100B","100B - 200B", "200B+"),
+                                              #limits = c(-2, 3),
+                                              #labels = c("-2%", "-1%", "±0%", "+1%", "+2%", "\u2265 +3%")
+                                              direction = -1) +
+              #scale_color_manual(values = c('yes' = 'red', 'no' = "transparent"), guide = "none") +
+              guides(fill = guide_legend(title.position = "top", 
+                                         title.hjust = 0.5, nrow = 1,
+                                         label.position = "top")) +
+              labs(x = NULL, y = NULL,
+                   title = "Total Gold Export over 2017 - 2023",
+                   subtitle = "In (USD)",
+                   caption = "UN Comtrade Export data")
+
+worldmap
 
 # df[df$reporterDesc == "Cura\xe7ao",]$reporterDesc <- "Curacao"
 # df[df$reporterDesc == "T\xfcrkiye",]$reporterDesc <- "Turkey"

@@ -5,3 +5,9 @@ code/analysis_report.Rmd
 code/analysis_report.pdf
 data/WUP2018-F08-Total_Growth_Rate.xls
 code/23_Population.Rmd
+code/_extensions/
+code/analysis_quarto.pdf
+code/backup_html/
+code/backup_pdf/
+code/worldmap.png
+code/worldmap_modified.svg

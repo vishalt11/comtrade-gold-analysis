@@ -1,12 +1,19 @@
 ---
 title: "Gold Export Trends and Opportunities in African Markets"
-date: "December 01, 2024"
+subtitle: "Updated: `r format(Sys.Date(), '%B %d, %Y')`"
 toc: true
 format:
   html:
     html-math-method: katex
     code-tools: true
     self-contained: true
+    page-layout: full
+    grid:
+      sidebar-width: 0px
+      body-width: 1100px
+      margin-width: 200px
+      gutter-width: 1.5rem
+  pdf: default
 execute:
   warning: false
 ---
@@ -93,6 +100,9 @@ library(wesanderson)
 library(patchwork)
 library(scales)
 library(gt)
+
+library(gtExtras)
+library(summarytools)
 ```
 
 ### Total Gold export worldwide 2017-2023
@@ -149,8 +159,8 @@ worldmapg <- ggplot(data = test) +
          caption = "Data by United Nations ")
 ```
 
-:::{.column-page}
-![](./worldmap_1.png)
+:::{.column-body-outset}
+![](./worldmap.png)
 :::
 
 ### Analysis for South Africa and Kenya
@@ -251,17 +261,30 @@ tab <-
 tab
 
 cty_missing <- unique(r2$partnerDesc[! r2$partnerDesc %in% r1$partnerDesc])
+
+
+df$qtyTransform <-df$altQty/df$qty
+df$unit_price <- df$primaryValue/df$altQty
 ```
 
 Also the following countries `{r} cty_missing` do not appear in the monthly aggregated data.
+
+### Descriptive Statistics
+
+```{r}
+#| code-fold: true
+#| eval: false
+#| echo: false 
+
+source("gt_summarytools.R")
+
+as_tibble(df) %>% gt_summarytools("Comtrade Summary")
+```
 
 ### Unit Value Plot
 
 ```{r}
 #| code-fold: true
-
-df$qtyTransform <-df$altQty/df$qty
-df$unit_price <- df$primaryValue/df$altQty
 
 west <- c("USA", "United Kingdom", "Spain", "France", "Germany", "Turkey", "Italy", "Japan",
           "Rep. of Korea", "Switzerland", "Canada", "Cyprus", "Slovenia", "Poland", "Ireland",
@@ -305,7 +328,7 @@ cmdcode_unitprice_plot = function(df, Reporter){
     theme(legend.position = "top",
           legend.title=element_blank()) +
     theme(axis.text.x = element_text(angle=45, hjust = 1)) +
-    guides(fill = guide_legend(nrow = 1))
+    guides(color = guide_legend(nrow = 1))
   
   if(Reporter == 'Kenya'){ 
     g <- g + scale_color_manual(values = color_vec[1:length(unique(plot_df$ctyGroup))])
@@ -489,11 +512,15 @@ g <- ggplot(data = plot_df, aes(x = date, y = sum)) +
 
 ```{r}
 #| echo: false
+#| label: fig-trade
+#| fig-cap: "Trade value between 2017-2023"
+
 g
 ```
 
 
 ### Compare BRICS and West trade 
+
 
 ```{r}
 #| code-fold: true
@@ -519,10 +546,9 @@ plot_grouped_bar <- function(country, plot_df){
     facet_grid( ~ flow)
   
 }
-
-plot_grouped_bar("Kenya", ydf)
-plot_grouped_bar("South Africa", ydf)
 ```
+
+
 ```{r}
 #| echo: false
 
@@ -556,6 +582,19 @@ plot_grouped_bar("South Africa", ydf)
 # #patchwork
 # p2/p1
 ```
+
+
+
+```{r}
+#| echo: false
+#| label: fig-comp
+#| fig-cap: "Comparison"
+
+plot_grouped_bar("Kenya", ydf)
+plot_grouped_bar("South Africa", ydf)
+```
+
+
 ### Export - Import Discrepancies 
 
 ```{r}
