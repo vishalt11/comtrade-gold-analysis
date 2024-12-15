@@ -160,7 +160,7 @@ worldmapg <- ggplot(data = test) +
 ```
 
 :::{.column-body-outset}
-![](./worldmap.png)
+![](./worldmap_1.png)
 :::
 
 ### Analysis for South Africa and Kenya
@@ -179,9 +179,15 @@ ydf2$flow <- "Import Reported"
 ydf <- rbind(ydf, ydf2)
 rm(ydf2)
 
+#export monthly reported data
 df <- read.csv("../data/monthly_cleaned_export.csv")
 df$date <- as.Date(df$date)
 
+#import monthly reported data
+df_i <- read.csv("../data/monthly_cleaned_import.csv")
+df_i$date <- as.Date(df_i$date)
+
+# gold data
 gold_df <- read.csv('../data/gold_prices_monthly.csv')
 gold_df$date <- as.Date(gold_df$date, format = '%m/%d/%Y')
 gold_df$date <- format(gold_df$date,"%Y-%m-01")
@@ -246,12 +252,6 @@ tab <-
     total_qty.y = "Yearly Quantity",
     Perc_diffqty = "Difference Qty (%)"
   ) |>
-  # gtExtras::gt_highlight_rows(
-  #  rows = 1,
-  #  fill = "lightgrey",
-  #  bold_target_only = TRUE,
-  #  target_col = Partner
-  # ) |>
   tab_style(
     style = cell_text(weight = "bold"),
     locations = cells_row_groups(groups = 1:2)
@@ -261,13 +261,52 @@ tab <-
 tab
 
 cty_missing <- unique(r2$partnerDesc[! r2$partnerDesc %in% r1$partnerDesc])
+```
+
+Also the following countries `{r} cty_missing` do not appear in the monthly aggregated data.
+
+```{r}
+#| code-fold: true
+
+
+# replace southafrica export rep data with import rep data
+
+#nrow(df[df$reporterDesc == "South Africa",])
+#nrow(df_i[df_i$reporterDesc == "South Africa",])
+df <- subset(df, df$reporterDesc !='South Africa')
+df <- rbind(df, df_i[df_i$reporterDesc == "South Africa",])
 
 
 df$qtyTransform <-df$altQty/df$qty
 df$unit_price <- df$primaryValue/df$altQty
 ```
 
-Also the following countries `{r} cty_missing` do not appear in the monthly aggregated data.
+
+```{r}
+#| code-fold: true
+
+gt(df %>% group_by(reporterDesc, partnerDesc) %>% 
+     summarise(total = sum(primaryValue)) %>% 
+     arrange(reporterDesc, desc(total)) %>%
+     top_n(n = 10)) |>
+  cols_label(
+    partnerDesc = "Partner",
+    total = "Cumulative Value"
+  ) |>
+  tab_header(
+    title = "Major Gold Trade partners for Kenya and South Africa"
+  ) |> 
+  fmt_currency(
+    columns = c(total),
+    currency = "USD",
+    decimals = 0
+  ) |>
+  tab_style(
+    style = cell_text(weight = "bold"),
+    locations = cells_row_groups(groups = 1:2)
+  )
+
+```
 
 ### Descriptive Statistics
 
@@ -289,53 +328,52 @@ as_tibble(df) %>% gt_summarytools("Comtrade Summary")
 west <- c("USA", "United Kingdom", "Spain", "France", "Germany", "Turkey", "Italy", "Japan",
           "Rep. of Korea", "Switzerland", "Canada", "Cyprus", "Slovenia", "Poland", "Ireland",
           "Norway", "Austria", "New Zealand", "Luxembourg", "Slovakia", "Estonia", "Denmark",
-          "Netherlands", "Belgium", "Sweden", "Czechia", "Australia")
+          "Netherlands", "Belgium", "Sweden", "Czechia", "Australia", "Israel")
 
 africa <- c("Cameroon", "Dem. Rep. of the Congo", "Nigeria", "South Africa", "Ethiopia",
             "Eswatini", "Mozambique", "United Rep. of Tanzania", "Botswana", "Kenya",
             "Uganda", "Namibia", "Zambia", "Mauritius", "Rwanda", "")
 
 ME <- c("United Arab Emirates", "Qatar", "Bahrain", "Saudi Arabia", "Oman")
-SA <- c("Paraguay")
+
+SE_asia <- c("Indonesia", "Thailand", "Malaysia", "Singapore")
+
+brics <- c("China, Hong Kong SAR", "China, Macao SAR", "Brazil", "India", "China", "Russia")
 
 color_vec <- c("firebrick3", "#00A08A", "#F98400", "#5BBCD6", "#C6CDF7", "#000000", "#CDC08C", "#004990", "#FF0000", "#35274A")
 
 cmdcode_unitprice_plot = function(df, Reporter){
 
-  plot_df <- df[df$reporterDesc == Reporter & df$cmdCode != '7108',]
-  plot_df$ctyGroup <- "Others"
-  legTitle <- 'Country'
+  plot_df <- df[df$reporterDesc == Reporter & df$cmdCode == '7108',]
   
-  if(Reporter == 'Kenya'){
-    plot_df[plot_df$partnerDesc %in% africa,]$ctyGroup <- 'Africa'
-    plot_df[plot_df$partnerDesc %in% west,]$ctyGroup <- 'West'
-    plot_df[plot_df$partnerDesc %in% c('China', 'China, Hong Kong SAR'),]$ctyGroup <- 'China'
-    plot_df[plot_df$partnerDesc %in% ME,]$ctyGroup <- 'ME'
-    plot_df[plot_df$partnerDesc %in% SA,]$ctyGroup <- 'S Amer'
-    legTitle <- 'Country Group'
+  plot_df$ctyGroup <- "Others"
+  plot_df[plot_df$partnerDesc %in% africa,]$ctyGroup <- 'Africa'
+  plot_df[plot_df$partnerDesc %in% west,]$ctyGroup <- 'West'
+  plot_df[plot_df$partnerDesc %in% c('China', 'China, Hong Kong SAR', 'China, Macao SAR'),]$ctyGroup <- 'China'
+  plot_df[plot_df$partnerDesc %in% ME,]$ctyGroup <- 'ME'
+  
+  if(Reporter != 'Kenya'){
+    plot_df[plot_df$partnerDesc %in% c('India'),]$ctyGroup <- 'India'
+    #plot_df[plot_df$partnerDesc %in% c('Brazil'),]$ctyGroup <- 'Brazil'
   }
-
-  cl <- length(unique(plot_df$partnerDesc))
+  
+  legTitle <- 'Country Group'
 
   g <- ggplot(data = plot_df, aes(x = date)) + 
     geom_point(aes(y = gold_price), color = "#FAD510", size=2.5, alpha = 0.8) + 
-    geom_point(aes(y = unit_price, color = !!ifelse(Reporter == 'Kenya', sym("ctyGroup"), sym("partnerDesc"))), size=2.5, alpha = 0.8) + 
+    #geom_point(aes(y = unit_price, color = !!ifelse(Reporter == 'Kenya', sym("ctyGroup"), sym("partnerDesc"))), size=2.5, alpha = 0.8) + 
+    geom_point(aes(y = unit_price), size=1.5, color = "#004990") + 
     scale_x_date(date_breaks = "1 year", date_labels = "%Y") + 
-    scale_y_continuous(limits = c(0, 75000)) +
+    scale_y_continuous(limits = c(0, 75000), labels = scales::label_dollar(scale_cut = scales::cut_short_scale())) +
     theme_bw() + 
     ylab("USD/Kg") + xlab("Date") +  guides(color=guide_legend(title=legTitle)) +
     labs(title = paste(Reporter, '\'s unit price vs gold spot price')) +
-    theme(legend.position = "top",
-          legend.title=element_blank()) +
+    theme(legend.position = "top", legend.title=element_blank()) +
     theme(axis.text.x = element_text(angle=45, hjust = 1)) +
     guides(color = guide_legend(nrow = 1))
   
-  if(Reporter == 'Kenya'){ 
-    g <- g + scale_color_manual(values = color_vec[1:length(unique(plot_df$ctyGroup))])
-  } else {
-    g <- g + scale_color_manual(values = color_vec[1:length(unique(plot_df$partnerDesc))])
-  }
-  
+  #g <- g + scale_color_manual(values = color_vec[1:length(unique(plot_df$ctyGroup))])
+  g <- g + facet_wrap( ~ ctyGroup, ncol = 3)
   return(list(g, plot_df))
 }
 ```
@@ -358,6 +396,8 @@ plot2 <- plot_stats[[1]]
 ```{r}
 #| echo: false
 plot1
+
+#ggsave('test.svg', plot1)
 ```
 
 ```{r}
@@ -518,6 +558,42 @@ g <- ggplot(data = plot_df, aes(x = date, y = sum)) +
 g
 ```
 
+```{r}
+#| code-fold: true
+pivoted_df <- df[df$cmdCode == 7108,]
+pivoted_df$date <- lubridate::floor_date(pivoted_df$date, "year")
+
+pivoted_df %>% filter(reporterDesc == "South Africa" & partnerDesc == "China") %>% group_by(date) %>% summarise(total = sum(primaryValue)) %>% print(n=200)
+
+pivoted_df <- pivoted_df %>% 
+                group_by(reporterDesc, date) %>% 
+                summarise(total = sum(primaryValue)) %>%
+                pivot_wider(names_from = date, values_from = total) 
+
+pivoted_df <- pivoted_df[,c(1,2,7,8,3,4,5,6)]
+pivoted_df <- pivoted_df %>%
+  rowwise() %>%
+  mutate(
+    change_2017_2018 = (`2018-01-01` - `2017-01-01`)/ `2017-01-01`,
+    change_2018_2019 = (`2019-01-01` - `2018-01-01`)/ `2018-01-01`,
+    change_2019_2020 = (`2020-01-01` - `2019-01-01`)/ `2019-01-01`,
+    change_2020_2021 = (`2021-01-01` - `2020-01-01`)/ `2020-01-01`,
+    change_2021_2022 = (`2022-01-01` - `2021-01-01`)/ `2021-01-01`,
+    change_2022_2023 = (`2023-01-01` - `2022-01-01`)/ `2022-01-01`,
+    cumulative = (((change_2017_2018+1)*(change_2018_2019+1)*(change_2019_2020+1)*(change_2020_2021+1)*(change_2021_2022+1)*(change_2022_2023+1)) - 1)*100,
+    max_min_change = (`2023-01-01` - `2017-01-01`)/ `2017-01-01`
+  ) %>%
+  ungroup() 
+
+subset_df <- pivoted_df %>% 
+  filter(reporterISO == "ZAF" | reporterISO == "KEN") %>% 
+  select(reporterISO, change_2017_2018, change_2018_2019, change_2019_2020, change_2020_2021, change_2021_2022, change_2022_2023)
+
+subset_df <- gather(subset_df, year, value, change_2017_2018:change_2022_2023)
+subset_df$year <- lubridate::ymd(gsub(".*_(\\d{4})$", "\\1", subset_df$year), truncated = 2L)
+subset_df$value <- round(subset_df$value*100,2)
+
+```
 
 ### Compare BRICS and West trade 
 
@@ -548,6 +624,10 @@ plot_grouped_bar <- function(country, plot_df){
 }
 ```
 
+
+```{r}
+#https://oec.world/en/profile/bilateral-product/gold/reporter/zaf?yearGrowth2=exportYear6&yearGrowth=exportYear1&tradeGrowth=flow0
+```
 
 ```{r}
 #| echo: false
